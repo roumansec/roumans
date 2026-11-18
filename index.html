@@ -8,10 +8,15 @@
 <style>
 *{box-sizing:border-box}body{margin:0;font-family:system-ui,Segoe UI,Arial,sans-serif;color:#111;background:#fafafa}
 #bar{background:#111;color:#fff;text-align:center;font-size:13px;padding:8px}
-header{display:flex;align-items:center;gap:12px;padding:10px 20px;background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:5}
+header{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:10px 20px;background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:5}
 header>img{height:38px;flex:none}#chips{flex:1;display:flex;gap:6px;overflow-x:auto;justify-content:center;scrollbar-width:none;min-width:0}#chips::-webkit-scrollbar{display:none}
 .ib{position:relative;flex:none;background:#111;color:#fff;border:0;border-radius:50%;width:44px;height:44px;display:grid;place-items:center}.ib span{position:absolute;top:-4px;right:-4px;background:#e11d48;color:#fff;border-radius:10px;font-size:11px;min-width:18px;height:18px;line-height:18px;text-align:center;font-weight:700}
-@media(max-width:600px){header{padding:8px 10px;gap:8px}header>img{height:26px}#chips{justify-content:flex-start}}button{cursor:pointer;font:inherit}
+.hb{display:flex;align-items:center;gap:4px;margin-left:auto;flex:none}.ic{background:0;border:0;color:#0f1c2e;width:44px;height:44px;display:grid;place-items:center;border-radius:50%;padding:0}.mob{display:none}
+.pn{display:none;flex:0 0 100%;order:5}.pn.open{display:block}#sbar input{margin:4px 0 2px;border-radius:24px;padding:11px 16px}
+#mnu button{display:block;width:100%;text-align:left;background:0;border:0;border-bottom:1px solid #eee;border-radius:0;padding:14px 6px;font-size:16px;color:#0f1c2e}#mnu button.on{font-weight:700;background:#fff;color:#0f1c2e}
+main{scroll-margin-top:80px}
+@media(max-width:600px){header{padding:8px 12px;gap:8px;background:#fbfcfe;box-shadow:0 2px 6px #0002}header>img{height:26px}#chips{display:none}.mob{display:grid}
+.ib{width:46px;height:46px;background:#edf1f5;color:#0f1c2e;box-shadow:0 1px 6px #0003}#bar{background:#0b1b2e}}button{cursor:pointer;font:inherit}
 .b1{background:#111;color:#fff;border:0;padding:10px 18px;border-radius:8px;font-weight:600}.b2{background:#fff;border:1px solid #ccc;padding:7px 12px;border-radius:8px;margin:2px}
 .hero{text-align:center;padding:60px 20px;background:#111;color:#fff}.hero h1{margin:0 0 20px;font-size:clamp(26px,5vw,44px)}.hero a{background:#fff;color:#111;padding:12px 22px;border-radius:8px;text-decoration:none;font-weight:700}
 main{max-width:1100px;margin:auto;padding:30px 16px}#chips button{border:1px solid #ccc;background:#fff;border-radius:20px;padding:6px 14px;white-space:nowrap}#chips .on{background:#111;color:#fff;border-color:#111}
@@ -34,7 +39,10 @@ input,select,textarea{width:100%;padding:9px;border:1px solid #ccc;border-radius
 @media(max-width:600px){main{padding:18px 10px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card .bd{padding:8px;font-size:13px}.card .bd small{font-size:11px}.pr{font-size:15px}.plus{width:30px;height:30px;font-size:18px}.hero{padding:40px 16px}}
 </style></head><body>
 <div id="bar"></div>
-<header><img src="logo.png" alt="ROUMANS"><nav id="chips"></nav><button class="ib" onclick="cartUI()" aria-label="Bolsa de compras"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span id="cn" style="display:none">0</span></button></header>
+<header><img src="logo.png" alt="ROUMANS"><nav id="chips"></nav>
+<div class="hb"><button class="ic" onclick="togP('sbar')" aria-label="Buscar"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></button><button class="ib" onclick="cartUI()" aria-label="Bolsa de compras"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="14" rx="3"/><path d="M8.5 7V6a3.5 3.5 0 0 1 7 0v1"/><path d="M9 12a3 3 0 0 0 6 0"/></svg><span id="cn" style="display:none">0</span></button><button class="ic mob" onclick="togP('mnu')" aria-label="Categorías"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button></div>
+<div class="pn" id="sbar"><input id="q0" type="search" placeholder="Buscar productos…" oninput="S.q=this.value;paint();if(this.value.length==1)$('#cat').scrollIntoView()"></div>
+<div class="pn" id="mnu"></div></header>
 <section class="hero"><h1 id="hero"></h1><a href="#cat" onclick="document.getElementById('cat').scrollIntoView();return false">Explorar productos</a></section>
 <main id="cat"><h2>Nuestros Productos</h2><div class="grid" id="grid"><p>Cargando…</p></div></main>
 <footer><div class="soc" id="soc"></div>© 2026 ROUMANS. Todos los derechos reservados.</footer>
@@ -42,7 +50,7 @@ input,select,textarea{width:100%;padding:9px;border:1px solid #ccc;border-radius
 <script>
 const API='https://script.google.com/macros/s/AKfycbwZCEVOcMgCrp7p0eCaqMANx0IG8Fcxd9KdbQLVkuEXE_V0MSHv2270GV3St81R7k1l/exec'; // ← URL de implementación de Apps Script (termina en /exec)
 const $=s=>document.querySelector(s),e=s=>String(s??'').replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';'),m=n=>'$'+(+n||0).toFixed(2);
-const S={p:[],cfg:{},cart:[],A:null,key:'',cat:'Todas'};
+const S={p:[],cfg:{},cart:[],A:null,key:'',cat:'Todas',q:''};
 const BAD=API=>API.startsWith('PEGA')?'Falta pegar la URL del Web App en index.html (const API)':!/script\.google\.com\/macros\/s\/.+\/exec/.test(API)?'La URL debe ser la de Apps Script y terminar en /exec':'';
 const api=async o=>{
   const b=BAD(API);if(b)return{ok:0,error:b};
@@ -72,11 +80,14 @@ function social(){
   const w=String(S.cfg.whatsapp||'').replace(/\D/g,'');if(w)L.push(['https://wa.me/'+w,'wa','WhatsApp']);
   $('#soc').innerHTML=L.map(x=>`<a ${x[1]=='wa'?'class="wa" ':''}href="${x[0]}" target="_blank" rel="noopener" aria-label="${x[2]}" title="${x[2]}">${IC[x[1]]}</a>`).join('');
 }
+function togP(id){const o=!$('#'+id).classList.contains('open');closeP();if(o){$('#'+id).classList.add('open');if(id=='sbar')$('#q0').focus()}}
+function closeP(){document.querySelectorAll('.pn').forEach(x=>x.classList.remove('open'))}
+function pickCat(c){S.cat=c;closeP();paint();$('#cat').scrollIntoView()}
 function paint(){social();
   $('#bar').textContent=S.cfg.anuncio||'';$('#hero').textContent=S.cfg.hero||'';
   const cats=['Todas',...new Set(S.p.map(p=>p.categoria).filter(Boolean))];
-  $('#chips').innerHTML=cats.map(c=>`<button class="${c==S.cat?'on':''}" onclick="S.cat='${e(c)}';paint()">${e(c)}</button>`).join('');
-  const l=S.p.filter(p=>S.cat=='Todas'||p.categoria==S.cat);
+  const ch=cats.map(c=>`<button class="${c==S.cat?'on':''}" onclick="pickCat('${e(c)}')">${e(c)}</button>`).join('');$('#chips').innerHTML=ch;$('#mnu').innerHTML=ch;
+  const q=S.q.trim().toLowerCase(),l=S.p.filter(p=>(S.cat=='Todas'||p.categoria==S.cat)&&(!q||[p.nombre,p.categoria,p.sku,p.descripcion].join(' ').toLowerCase().includes(q)));
   $('#grid').innerHTML=l.map(p=>{const i=imgs(p)[0];return`<div class="card" onclick="prod('${e(p.sku)}')">${i?`<img src="${e(i)}" loading="lazy">`:'<div class="ph"></div>'}<div class="bd"><small>${e(p.categoria)}</small><br>${e(p.nombre)}<div class="pf"><span class="pr">${m(p.precio)}</span>${+p.stock<=0?'<small>Agotado</small>':`<button class="plus" aria-label="Agregar" onclick="event.stopPropagation();quick('${e(p.sku)}')">+</button>`}</div></div></div>`}).join('')||'<p>Sin productos disponibles.</p>';
   const n=S.cart.reduce((a,x)=>a+x.qty,0);$('#cn').textContent=n;$('#cn').style.display=n?'block':'none';
 }

@@ -67,7 +67,7 @@ input,select,textarea{width:100%;padding:9px;border:1px solid #ccc;border-radius
 <div class="pn" id="sbar"><input id="q0" type="search" placeholder="Buscar productos…" oninput="S.q=this.value;paint();if(this.value.length==1)$('#cat').scrollIntoView()"></div>
 <div class="pn" id="mnu"></div></header>
 <section class="hero"><h1 id="hero"></h1><a href="#cat" onclick="document.getElementById('cat').scrollIntoView();return false">Explorar productos</a></section>
-<main id="cat"><h2>Nuestros Productos</h2><div class="grid" id="grid"><p>Cargando…</p></div></main>
+<main id="cat"><h2 id="ctt">Nuestros Productos</h2><div class="grid" id="grid"><p>Cargando…</p></div></main>
 <footer><div class="soc" id="soc"></div>© 2026 ROUMANS. Todos los derechos reservados.</footer>
 <div id="cv" onclick="if(event.target==this)closeCart()"><aside id="cd" role="dialog" aria-modal="true" aria-labelledby="ct"><button id="cxb" onclick="closeCart()" aria-label="Cerrar carrito"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button><h2 id="ct">Tu carrito</h2><p id="cs2"></p><div id="cl"></div><div id="cf"></div></aside></div>
 <div class="ov" id="ov"><div id="ovc"></div></div><div id="adm"></div><div id="toast"></div>
@@ -107,7 +107,7 @@ function social(){
 function togP(id){const o=!$('#'+id).classList.contains('open');closeP();if(o){$('#'+id).classList.add('open');if(id=='sbar')$('#q0').focus()}}
 function closeP(){document.querySelectorAll('.pn').forEach(x=>x.classList.remove('open'))}
 function pickCat(c){S.cat=c;closeP();paint();$('#cat').scrollIntoView()}
-function paint(){social();
+function paint(){social();$('#ctt').textContent=S.cat=='Todas'?'Nuestros Productos':S.cat;
   $('#bar').textContent=S.cfg.anuncio||'';$('#hero').textContent=S.cfg.hero||'';
   const cats=['Todas',...new Set(S.p.map(p=>p.categoria).filter(Boolean))];
   const ch=cats.map(c=>`<button class="${c==S.cat?'on':''}" onclick="pickCat('${e(c)}')">${e(c)}</button>`).join('');$('#chips').innerHTML=ch;$('#mnu').innerHTML=ch;
@@ -231,7 +231,7 @@ async function pdf(v){
   d.save('Comprobante-'+v.id+'.pdf');
 }
 function pdfV(id){const v=S.A.VENTAS.find(x=>x.id==id);let it=[];try{it=JSON.parse(v.items)}catch{}
-  pdf({id:v.id,fecha:v.fecha,cli:{nombre:v.cliente,cedula:v.cedula,telefono:v.telefono,direccion:v.direccion},items:it,pago:v.pago,obs:v.obs,sub:+v.subtotal,iva:+v.iva,total:+v.total})}
+  pdf({id:v.id,fecha:v.fecha,cli:{nombre:v.cliente,cedula:v.cedula,telefono:v.telefono,direccion:v.direccion},items:it,pago:v.pago,obs:v.obs,sub:+v.subtotal,iva:+v.iva,total:+v.total,inc:v.ivainc==='SI'?1:0})}
 
 /* ===== ADMIN ===== */
 function loginUI(){show('<h2>Acceso administrador</h2><label>Clave de acceso</label><input type="password" id="k" onkeydown="if(event.key==\'Enter\')login()"><button class="b1" onclick="login()">Ingresar</button>')}

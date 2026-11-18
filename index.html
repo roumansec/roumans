@@ -31,6 +31,7 @@ input,select,textarea{width:100%;padding:9px;border:1px solid #ccc;border-radius
 .kp{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:20px}.kp div{background:#fff;padding:16px;border-radius:12px}.kp b{font-size:26px;display:block}
 .tw{overflow-x:auto;background:#fff;border-radius:10px;margin:10px 0}table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:8px 10px;text-align:left;border-bottom:1px solid #eee;white-space:nowrap}th{background:#fafafa}
 .fm{background:#fff;padding:16px;border-radius:12px;margin:10px 0}#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#111;color:#fff;padding:10px 18px;border-radius:8px;z-index:50;display:none}
+@media(max-width:600px){main{padding:18px 10px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card .bd{padding:8px;font-size:13px}.card .bd small{font-size:11px}.pr{font-size:15px}.plus{width:30px;height:30px;font-size:18px}.hero{padding:40px 16px}}
 </style></head><body>
 <div id="bar"></div>
 <header><img src="logo.png" alt="ROUMANS"><nav id="chips"></nav><button class="ib" onclick="cartUI()" aria-label="Bolsa de compras"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span id="cn" style="display:none">0</span></button></header>
@@ -39,7 +40,7 @@ input,select,textarea{width:100%;padding:9px;border:1px solid #ccc;border-radius
 <footer><div class="soc" id="soc"></div>© 2026 ROUMANS. Todos los derechos reservados.</footer>
 <div class="ov" id="ov"><div id="ovc"></div></div><div id="adm"></div><div id="toast"></div>
 <script>
-const API='https://script.google.com/macros/s/AKfycbwZCEVOcMgCrp7p0eCaqMANx0IG8Fcxd9KdbQLVkuEXE_V0MSHv2270GV3St81R7k1l/exec'; // ← URL de implementación de Apps Script (termina en /exec)
+const API='PEGA_AQUI_LA_URL_DEL_WEB_APP'; // ← URL de implementación de Apps Script (termina en /exec)
 const $=s=>document.querySelector(s),e=s=>String(s??'').replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';'),m=n=>'$'+(+n||0).toFixed(2);
 const S={p:[],cfg:{},cart:[],A:null,key:'',cat:'Todas'};
 const BAD=API=>API.startsWith('PEGA')?'Falta pegar la URL del Web App en index.html (const API)':!/script\.google\.com\/macros\/s\/.+\/exec/.test(API)?'La URL debe ser la de Apps Script y terminar en /exec':'';
@@ -116,9 +117,45 @@ async function order(){
   const r=await api({action:'order',cliente:c,items:S.cart,pago:$('#c5').value,obs:$('#c7').value,canal:'Web'});
   if(!r.ok){toast(r.error);$('#ok').disabled=false;$('#ok').textContent='Confirmar pedido';return}
   const txt=`Hola ROUMANS, pedido ${r.id}\nCliente: ${c.nombre} (${c.cedula})\n`+r.items.map(i=>`- ${i.qty} x ${i.nombre}${i.color?' ('+i.color+')':''}`).join('\n')+`\nTotal: ${m(r.total)} USD\nPago: ${$('#c5').value}\nEntrega: ${c.direccion}`;
+  {const sb=r.items.reduce((a,i)=>a+i.qty*i.precio,0);LAST={id:r.id,fecha:now(),cli:c,items:r.items,pago:$('#c5').value,obs:$('#c7').value,sub:sb,iva:+r.total-sb,total:+r.total}}
   S.cart=[];load();
-  show(`<h2>¡Pedido registrado!</h2><p>N° ${e(r.id)} · Total ${m(r.total)} USD</p>${S.cfg.whatsapp?`<a class="b1" style="display:inline-block;text-decoration:none" target="_blank" href="https://wa.me/${e(S.cfg.whatsapp)}?text=${encodeURIComponent(txt)}">Enviar comprobante por WhatsApp</a>`:''} <button class="b2" onclick="hide()">Seguir comprando</button>`);
+  show(`<h2>¡Pedido registrado!</h2><p>N° ${e(r.id)} · Total ${m(r.total)} USD</p>${S.cfg.whatsapp?`<a class="b1" style="display:inline-block;text-decoration:none" target="_blank" href="https://wa.me/${e(S.cfg.whatsapp)}?text=${encodeURIComponent(txt)}">Enviar comprobante por WhatsApp</a>`:''} <button class="b1" onclick="pdf(LAST)">Descargar comprobante PDF</button> <button class="b2" onclick="hide()">Seguir comprando</button>`);
 }
+
+
+/* ===== COMPROBANTE PDF ===== */
+let LAST=null,JP=null;
+const loadPdf=()=>JP||(JP=new Promise((ok,no)=>{if(window.jspdf)return ok();const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';s.onload=ok;s.onerror=()=>{JP=null;no()};document.head.appendChild(s)}));
+const logoData=()=>new Promise(r=>{const i=new Image();i.onload=()=>{const c=document.createElement('canvas');c.width=i.width;c.height=i.height;c.getContext('2d').drawImage(i,0,0);r({d:c.toDataURL('image/png'),w:i.width,h:i.height})};i.onerror=()=>r(null);i.src='logo.png'});
+async function pdf(v){
+  try{await loadPdf()}catch{return toast('No se pudo cargar el generador de PDF (revisa tu conexión)')}
+  toast('Generando comprobante…');
+  const d=new window.jspdf.jsPDF({unit:'mm',format:'a4'}),L=await logoData();let y=14;
+  if(L){const w=62,hh=w*L.h/L.w;d.addImage(L.d,'PNG',15,y,w,hh);y+=hh}else{d.setFontSize(22).setFont('helvetica','bold').text('ROUMANS',15,y+8);y+=10}
+  d.setTextColor(0).setFont('helvetica','bold').setFontSize(13).text('COMPROBANTE DE PEDIDO',195,18,{align:'right'});
+  d.setFont('helvetica','normal').setFontSize(10).text('N° '+v.id,195,24,{align:'right'}).text('Fecha: '+v.fecha,195,29,{align:'right'});
+  y+=8;d.setDrawColor(17).setLineWidth(.6).line(15,y,195,y);y+=7;
+  const c=v.cli||{};d.setFont('helvetica','bold').text('CLIENTE',15,y);d.setFont('helvetica','normal');y+=5.5;
+  [['Nombre',c.nombre],['Cédula / RUC',c.cedula],['Teléfono',c.telefono],['Dirección',c.direccion],['Pago',v.pago]].forEach(([k,x])=>{if(!x)return;const t=d.splitTextToSize(String(x),140);d.text(k+':',15,y);d.text(t,45,y);y+=5*t.length});
+  y+=4;d.setFillColor(17,17,17).rect(15,y,180,8,'F');d.setTextColor(255).setFont('helvetica','bold');
+  d.text('Cant.',18,y+5.5).text('Descripción',32,y+5.5).text('P. unit.',158,y+5.5,{align:'right'}).text('Total',192,y+5.5,{align:'right'});
+  y+=14;d.setTextColor(0).setFont('helvetica','normal');
+  v.items.forEach(i=>{const t=d.splitTextToSize(i.nombre+(i.color?' ('+i.color+')':''),112);
+    if(y+t.length*5>265){d.addPage();y=20}
+    d.text(String(i.qty),18,y).text(t,32,y).text(m(i.precio),158,y,{align:'right'}).text(m(i.qty*i.precio),192,y,{align:'right'});
+    y+=t.length*5+1.5;d.setDrawColor(225).setLineWidth(.2).line(15,y-3,195,y-3);y+=1.5});
+  if(y>235){d.addPage();y=20}y+=4;
+  d.text('Subtotal',150,y,{align:'right'}).text(m(v.sub),192,y,{align:'right'});y+=6;
+  d.text('IVA ('+(+S.cfg.iva||0)+'%)',150,y,{align:'right'}).text(m(v.iva),192,y,{align:'right'});y+=8;
+  d.setFont('helvetica','bold').setFontSize(13).text('TOTAL',150,y,{align:'right'}).text(m(v.total)+' USD',192,y,{align:'right'});y+=10;
+  if(v.obs){d.setFont('helvetica','normal').setFontSize(10).text(d.splitTextToSize('Observación: '+v.obs,180),15,y);y+=10}
+  d.setFont('helvetica','normal').setFontSize(9).setTextColor(110);
+  const w=String(S.cfg.whatsapp||'').replace(/\D/g,'');
+  d.text('Gracias por tu compra en ROUMANS'+(w?'  ·  WhatsApp: +'+w:'')+'  ·  @roumans.ec',105,285,{align:'center'});
+  d.save('Comprobante-'+v.id+'.pdf');
+}
+function pdfV(id){const v=S.A.VENTAS.find(x=>x.id==id);let it=[];try{it=JSON.parse(v.items)}catch{}
+  pdf({id:v.id,fecha:v.fecha,cli:{nombre:v.cliente,cedula:v.cedula,telefono:v.telefono,direccion:v.direccion},items:it,pago:v.pago,obs:v.obs,sub:+v.subtotal,iva:+v.iva,total:+v.total})}
 
 /* ===== ADMIN ===== */
 function loginUI(){show('<h2>Acceso administrador</h2><label>Clave de acceso</label><input type="password" id="k" onkeydown="if(event.key==\'Enter\')login()"><button class="b1" onclick="login()">Ingresar</button>')}
@@ -150,7 +187,7 @@ Inventario(){const A=S.A;
   <h3>Kardex</h3>${tbl(['Fecha','Producto','Tipo','Cant.','Anterior → Nuevo','Motivo'],[...A.KARDEX].reverse().slice(0,200).map(k=>[e(k.fecha),e(k.producto),e(k.tipo),k.cantidad,k.anterior+' → '+k.nuevo,e(k.motivo)]))}`},
 Ventas(){const A=S.A;
   return`<div class="fm"><h3>Venta directa (mostrador)</h3><div class="g2"><div><label>Cédula / RUC</label><input id="v1"></div><div><label>Cliente</label><input id="v2" value="Consumidor final"></div><div><label>Producto</label><select id="v3">${A.PRODUCTOS.map(p=>`<option value="${e(p.sku)}">${e(p.nombre)} (${p.stock})`).join('')}</select></div><div><label>Cantidad</label><input type="number" id="v4" value="1"></div><div><label>Pago</label><select id="v5"><option>Efectivo<option>Transferencia<option>Tarjeta</select></div></div><button class="b1" onclick="manual()">Emitir venta y descontar stock</button></div>
-  ${tbl(['N°','Fecha','Cliente','Artículos','Pago','Total','Estado'],[...A.VENTAS].reverse().map(v=>{let it='';try{it=JSON.parse(v.items).map(i=>i.qty+'× '+i.nombre+(i.color?' ('+i.color+')':'')).join(', ')}catch{}return[e(v.id),e(v.fecha),e(v.cliente),e(it),e(v.pago),m(v.total),`<button class="b2" onclick="est('${e(v.id)}')">${e(v.estado)}</button>`]}))}`},
+  ${tbl(['N°','Fecha','Cliente','Artículos','Pago','Total','Estado','Comprobante'],[...A.VENTAS].reverse().map(v=>{let it='';try{it=JSON.parse(v.items).map(i=>i.qty+'× '+i.nombre+(i.color?' ('+i.color+')':'')).join(', ')}catch{}return[e(v.id),e(v.fecha),e(v.cliente),e(it),e(v.pago),m(v.total),`<button class="b2" onclick="est('${e(v.id)}')">${e(v.estado)}</button>`,`<button class="b2" onclick="pdfV('${e(v.id)}')">PDF</button>`]}))}`},
 Clientes(){
   if(!F)F={cedula:'',nombre:'',telefono:'',correo:'',direccion:''};
   return`<div class="fm"><h3>Crear / editar cliente</h3><div class="g2">${inp('cedula','Cédula / RUC *')}${inp('nombre','Nombres / Razón social *')}${inp('telefono','Teléfono *')}${inp('correo','Correo')}${inp('direccion','Dirección')}</div><button class="b1" onclick="saveC()">Guardar cliente</button></div>`+tbl(['Cédula','Nombres','Teléfono','Correo','Dirección',''],S.A.CLIENTES.map((c,i)=>[e(c.cedula),e(c.nombre),e(c.telefono),e(c.correo),e(c.direccion),`<button class="b2" onclick="F={...S.A.CLIENTES[${i}]};admin()">Editar</button><button class="b2" onclick="delC(${i})">Borrar</button>`]))},

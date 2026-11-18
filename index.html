@@ -39,10 +39,15 @@ input,select,textarea{width:100%;padding:9px;border:1px solid #ccc;border-radius
 <footer><div class="soc" id="soc"></div>© 2026 ROUMANS. Todos los derechos reservados.</footer>
 <div class="ov" id="ov"><div id="ovc"></div></div><div id="adm"></div><div id="toast"></div>
 <script>
-const API='PEGA_AQUI_LA_URL_DEL_WEB_APP'; // ← URL de implementación de Apps Script (termina en /exec)
+const API='https://script.google.com/macros/s/AKfycbwZCEVOcMgCrp7p0eCaqMANx0IG8Fcxd9KdbQLVkuEXE_V0MSHv2270GV3St81R7k1l/exec'; // ← URL de implementación de Apps Script (termina en /exec)
 const $=s=>document.querySelector(s),e=s=>String(s??'').replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';'),m=n=>'$'+(+n||0).toFixed(2);
 const S={p:[],cfg:{},cart:[],A:null,key:'',cat:'Todas'};
-const api=o=>fetch(API,{method:'POST',body:JSON.stringify(o)}).then(r=>r.json()).catch(x=>({ok:0,error:'Sin conexión con la hoja'}));
+const BAD=API=>API.startsWith('PEGA')?'Falta pegar la URL del Web App en index.html (const API)':!/script\.google\.com\/macros\/s\/.+\/exec/.test(API)?'La URL debe ser la de Apps Script y terminar en /exec':'';
+const api=async o=>{
+  const b=BAD(API);if(b)return{ok:0,error:b};
+  try{const t=await(await fetch(API,{method:'POST',body:JSON.stringify(o)})).text();
+    try{return JSON.parse(t)}catch{return{ok:0,error:'La URL no devolvió datos: en la implementación usa acceso "Cualquier persona" y publica una nueva versión'}}
+  }catch(x){return{ok:0,error:'Sin conexión con la hoja: revisa que la URL sea la /exec y que el acceso sea "Cualquier persona"'}}};
 const cols=p=>{try{return Array.isArray(p.colores)?p.colores:JSON.parse(p.colores||'[]')}catch{return[]}};let CP=null,SEL='';
 const imgs=p=>{try{return Array.isArray(p.imagenes)?p.imagenes:JSON.parse(p.imagenes||'[]')}catch{return[]}};
 const toast=t=>{const x=$('#toast');x.textContent=t;x.style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>x.style.display='none',2800)};
@@ -53,8 +58,9 @@ const tbl=(h,r)=>`<div class="tw"><table><tr>${h.map(x=>`<th>${x}`).join('')}${r
 
 /* ===== TIENDA PÚBLICA ===== */
 async function load(){
-  if(API.startsWith('PEGA')){$('#grid').innerHTML='<p>Falta configurar la URL del Web App en index.html (const API).</p>';return}
-  try{const r=await(await fetch(API)).json();S.p=r.productos;S.cfg=r.config;paint()}catch(x){$('#grid').innerHTML='<p>No se pudo cargar el catálogo.</p>'}
+  const b=BAD(API);if(b){$('#grid').innerHTML='<p>'+b+'.</p>';return}
+  try{const r=JSON.parse(await(await fetch(API)).text());if(!r.ok)throw 0;S.p=r.productos;S.cfg=r.config;paint()}
+  catch(x){$('#grid').innerHTML='<p>No se pudo cargar el catálogo. Abre la URL del Web App en el navegador: debe mostrar datos y no una página de inicio de sesión. Revisa que el acceso sea "Cualquier persona" y que hayas publicado una nueva versión.</p>'}
 }
 const IC={fb:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>',
 ig:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM17.6 5.9a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2z"/></svg>',

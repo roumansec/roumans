@@ -8,14 +8,18 @@
 <style>
 *{box-sizing:border-box}body{margin:0;font-family:system-ui,Segoe UI,Arial,sans-serif;color:#111;background:#fafafa}
 #bar{background:#111;color:#fff;text-align:center;font-size:13px;padding:8px}
-header{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:5}
-header img{height:38px}button{cursor:pointer;font:inherit}
+header{display:flex;align-items:center;gap:12px;padding:10px 20px;background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:5}
+header>img{height:38px;flex:none}#chips{flex:1;display:flex;gap:6px;overflow-x:auto;justify-content:center;scrollbar-width:none;min-width:0}#chips::-webkit-scrollbar{display:none}
+.ib{position:relative;flex:none;background:#111;color:#fff;border:0;border-radius:50%;width:44px;height:44px;display:grid;place-items:center}.ib span{position:absolute;top:-4px;right:-4px;background:#e11d48;color:#fff;border-radius:10px;font-size:11px;min-width:18px;height:18px;line-height:18px;text-align:center;font-weight:700}
+@media(max-width:600px){header{padding:8px 10px;gap:8px}header>img{height:26px}#chips{justify-content:flex-start}}button{cursor:pointer;font:inherit}
 .b1{background:#111;color:#fff;border:0;padding:10px 18px;border-radius:8px;font-weight:600}.b2{background:#fff;border:1px solid #ccc;padding:7px 12px;border-radius:8px;margin:2px}
 .hero{text-align:center;padding:60px 20px;background:#111;color:#fff}.hero h1{margin:0 0 20px;font-size:clamp(26px,5vw,44px)}.hero a{background:#fff;color:#111;padding:12px 22px;border-radius:8px;text-decoration:none;font-weight:700}
-main{max-width:1100px;margin:auto;padding:30px 16px}.chips button{border:1px solid #ccc;background:#fff;border-radius:20px;padding:6px 14px;margin:0 6px 6px 0}.chips .on{background:#111;color:#fff}
+main{max-width:1100px;margin:auto;padding:30px 16px}#chips button{border:1px solid #ccc;background:#fff;border-radius:20px;padding:6px 14px;white-space:nowrap}#chips .on{background:#111;color:#fff;border-color:#111}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;margin-top:14px}
 .card{background:#fff;border:1px solid #eee;border-radius:12px;overflow:hidden;cursor:pointer}.card img,.ph{width:100%;aspect-ratio:1;object-fit:cover;background:#eee;display:block}
-.card div{padding:12px}.card small{color:#777}.pr{font-weight:700;font-size:18px}
+.card .bd{padding:12px}.pf{display:flex;justify-content:space-between;align-items:center;margin-top:4px}.plus{width:36px;height:36px;border-radius:50%;border:0;background:#111;color:#fff;font-size:22px;line-height:1}
+.sw{display:inline-flex;align-items:center;gap:6px;border:1px solid #ccc;background:#fff;border-radius:20px;padding:5px 12px;font-size:13px;margin:0 6px 6px 0}.sw i{width:16px;height:16px;border-radius:50%;border:1px solid #0003;display:inline-block}.sw.on{border-color:#111;box-shadow:0 0 0 2px #111}
+.soc{display:flex;gap:12px;justify-content:center;margin:12px 0}.soc a{width:42px;height:42px;border-radius:50%;background:#111;color:#fff;display:grid;place-items:center}.soc a.wa{background:#25d366}.soc svg{width:22px;height:22px}.card small{color:#777}.pr{font-weight:700;font-size:18px}
 footer{text-align:center;padding:30px;color:#777;font-size:13px}footer a{color:#555;margin:0 6px}
 .ov{position:fixed;inset:0;background:#0008;display:none;z-index:20;overflow:auto}.ov>div{background:#fff;max-width:640px;margin:30px auto;padding:22px;border-radius:14px;position:relative}
 .x{position:absolute;right:12px;top:8px;border:0;background:0;font-size:26px}
@@ -29,16 +33,17 @@ input,select,textarea{width:100%;padding:9px;border:1px solid #ccc;border-radius
 .fm{background:#fff;padding:16px;border-radius:12px;margin:10px 0}#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#111;color:#fff;padding:10px 18px;border-radius:8px;z-index:50;display:none}
 </style></head><body>
 <div id="bar"></div>
-<header><img src="logo.png" alt="ROUMANS"><button class="b1" onclick="cartUI()">Bolsa (<span id="cn">0</span>)</button></header>
+<header><img src="logo.png" alt="ROUMANS"><nav id="chips"></nav><button class="ib" onclick="cartUI()" aria-label="Bolsa de compras"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span id="cn" style="display:none">0</span></button></header>
 <section class="hero"><h1 id="hero"></h1><a href="#cat" onclick="document.getElementById('cat').scrollIntoView();return false">Explorar productos</a></section>
-<main id="cat"><h2>Nuestros Productos</h2><div class="chips" id="chips"></div><div class="grid" id="grid"><p>Cargando…</p></div></main>
-<footer>© 2026 ROUMANS. Todos los derechos reservados. <br><a href="https://www.facebook.com/61572463497545/" target="_blank">Facebook</a><a href="https://www.instagram.com/roumans.ec/" target="_blank">Instagram</a><a href="https://www.tiktok.com/@roumans.ec" target="_blank">TikTok</a><br><a href="#" onclick="loginUI();return false">Acceso administrador</a></footer>
+<main id="cat"><h2>Nuestros Productos</h2><div class="grid" id="grid"><p>Cargando…</p></div></main>
+<footer><div class="soc" id="soc"></div>© 2026 ROUMANS. Todos los derechos reservados.</footer>
 <div class="ov" id="ov"><div id="ovc"></div></div><div id="adm"></div><div id="toast"></div>
 <script>
-const API='https://script.google.com/macros/s/AKfycbwZCEVOcMgCrp7p0eCaqMANx0IG8Fcxd9KdbQLVkuEXE_V0MSHv2270GV3St81R7k1l/exec'; // ← URL de implementación de Apps Script (termina en /exec)
+const API='PEGA_AQUI_LA_URL_DEL_WEB_APP'; // ← URL de implementación de Apps Script (termina en /exec)
 const $=s=>document.querySelector(s),e=s=>String(s??'').replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';'),m=n=>'$'+(+n||0).toFixed(2);
 const S={p:[],cfg:{},cart:[],A:null,key:'',cat:'Todas'};
 const api=o=>fetch(API,{method:'POST',body:JSON.stringify(o)}).then(r=>r.json()).catch(x=>({ok:0,error:'Sin conexión con la hoja'}));
+const cols=p=>{try{return Array.isArray(p.colores)?p.colores:JSON.parse(p.colores||'[]')}catch{return[]}};let CP=null,SEL='';
 const imgs=p=>{try{return Array.isArray(p.imagenes)?p.imagenes:JSON.parse(p.imagenes||'[]')}catch{return[]}};
 const toast=t=>{const x=$('#toast');x.textContent=t;x.style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>x.style.display='none',2800)};
 const show=h=>{$('#ovc').innerHTML='<button class="x" onclick="hide()">×</button>'+h;$('#ov').style.display='block'},hide=()=>$('#ov').style.display='none';
@@ -51,31 +56,43 @@ async function load(){
   if(API.startsWith('PEGA')){$('#grid').innerHTML='<p>Falta configurar la URL del Web App en index.html (const API).</p>';return}
   try{const r=await(await fetch(API)).json();S.p=r.productos;S.cfg=r.config;paint()}catch(x){$('#grid').innerHTML='<p>No se pudo cargar el catálogo.</p>'}
 }
-function paint(){
+const IC={fb:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>',
+ig:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM17.6 5.9a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2z"/></svg>',
+tt:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 6.7a4.8 4.8 0 0 1-3.8-4.2h-3.3v13.3a2.8 2.8 0 1 1-2-2.7V9.7a6.1 6.1 0 1 0 5.3 6V9.4a8 8 0 0 0 3.8 1.2z"/></svg>',
+wa:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.200 5.200 0 0 0 1.100 2.800c.1.2 2.100 3.300 5.200 4.600 1.900.8 2.700.9 3.600.7.600-.1 1.700-.7 2-1.400.2-.7.2-1.200.2-1.300-.1-.1-.3-.2-.5-.3z"/></svg>'};
+function social(){
+  const L=[['https://www.facebook.com/61572463497545/','fb','Facebook'],['https://www.instagram.com/roumans.ec/','ig','Instagram'],['https://www.tiktok.com/@roumans.ec','tt','TikTok']];
+  const w=String(S.cfg.whatsapp||'').replace(/\D/g,'');if(w)L.push(['https://wa.me/'+w,'wa','WhatsApp']);
+  $('#soc').innerHTML=L.map(x=>`<a ${x[1]=='wa'?'class="wa" ':''}href="${x[0]}" target="_blank" rel="noopener" aria-label="${x[2]}" title="${x[2]}">${IC[x[1]]}</a>`).join('');
+}
+function paint(){social();
   $('#bar').textContent=S.cfg.anuncio||'';$('#hero').textContent=S.cfg.hero||'';
   const cats=['Todas',...new Set(S.p.map(p=>p.categoria).filter(Boolean))];
   $('#chips').innerHTML=cats.map(c=>`<button class="${c==S.cat?'on':''}" onclick="S.cat='${e(c)}';paint()">${e(c)}</button>`).join('');
   const l=S.p.filter(p=>S.cat=='Todas'||p.categoria==S.cat);
-  $('#grid').innerHTML=l.map(p=>{const i=imgs(p)[0];return`<div class="card" onclick="prod('${e(p.sku)}')">${i?`<img src="${e(i)}" loading="lazy">`:'<div class="ph"></div>'}<div><small>${e(p.categoria)}</small><br>${e(p.nombre)}<br><span class="pr">${m(p.precio)}</span>${+p.stock<=0?' <small>Agotado</small>':''}</div></div>`}).join('')||'<p>Sin productos disponibles.</p>';
-  $('#cn').textContent=S.cart.reduce((a,x)=>a+x.qty,0);
+  $('#grid').innerHTML=l.map(p=>{const i=imgs(p)[0];return`<div class="card" onclick="prod('${e(p.sku)}')">${i?`<img src="${e(i)}" loading="lazy">`:'<div class="ph"></div>'}<div class="bd"><small>${e(p.categoria)}</small><br>${e(p.nombre)}<div class="pf"><span class="pr">${m(p.precio)}</span>${+p.stock<=0?'<small>Agotado</small>':`<button class="plus" aria-label="Agregar" onclick="event.stopPropagation();quick('${e(p.sku)}')">+</button>`}</div></div></div>`}).join('')||'<p>Sin productos disponibles.</p>';
+  const n=S.cart.reduce((a,x)=>a+x.qty,0);$('#cn').textContent=n;$('#cn').style.display=n?'block':'none';
 }
 function prod(sku){
-  const p=S.p.find(x=>x.sku==sku),im=imgs(p);
+  const p=S.p.find(x=>x.sku==sku),im=imgs(p),co=cols(p);CP=p;SEL=(co[0]||{}).n||'';
   show(`${im[0]?`<img class="main-img" id="mi" src="${e(im[0])}">`:''}<div class="th">${im.map(u=>`<img src="${e(u)}" onclick="$('#mi').src=this.src">`).join('')}</div>
   <small>${e(p.categoria)} · Código ${e(p.sku)}</small><h2>${e(p.nombre)}</h2><div class="pr">${m(p.precio)} USD</div><p>${e(p.descripcion)}</p>
+  ${co.length?`<label>Color</label><div class="th" id="cs">${co.map((c,i)=>`<button class="sw ${i?'':'on'}" onclick="selCol(${i})"><i style="background:${e(c.h)}"></i>${e(c.n)}</button>`).join('')}</div>`:''}
   <label>Cantidad</label><input type="number" id="q" value="1" min="1" max="${+p.stock}">
   <button class="b1" ${+p.stock<=0?'disabled':''} onclick="add('${e(p.sku)}')">${+p.stock<=0?'Agotado':'Agregar a la bolsa'}</button>`);
 }
+function selCol(i){SEL=cols(CP)[i].n;document.querySelectorAll('#cs .sw').forEach((b,j)=>b.classList.toggle('on',j==i))}
+function quick(sku){const p=S.p.find(x=>x.sku==sku);if(cols(p).length)return prod(sku);const c=S.cart.find(x=>x.sku==sku&&!x.color);if((c?c.qty:0)+1>+p.stock)return toast('Stock disponible: '+p.stock);c?c.qty++:S.cart.push({sku,qty:1});paint();toast('Agregado a la bolsa')}
 function add(sku){
-  const p=S.p.find(x=>x.sku==sku),q=Math.max(1,+$('#q').value||1),c=S.cart.find(x=>x.sku==sku);
-  if((c?c.qty:0)+q>+p.stock)return toast('Stock disponible: '+p.stock);
-  c?c.qty+=q:S.cart.push({sku,qty:q});hide();paint();toast('Agregado a la bolsa');
+  const p=S.p.find(x=>x.sku==sku),q=Math.max(1,+$('#q').value||1),color=SEL,c=S.cart.find(x=>x.sku==sku&&(x.color||'')==color),tq=S.cart.filter(x=>x.sku==sku).reduce((a,x)=>a+x.qty,0);
+  if(tq+q>+p.stock)return toast('Stock disponible: '+p.stock);
+  c?c.qty+=q:S.cart.push({sku,qty:q,color});hide();paint();toast('Agregado a la bolsa');
 }
 const tot=()=>{const s=S.cart.reduce((a,x)=>a+x.qty*S.p.find(p=>p.sku==x.sku).precio,0),i=s*(+S.cfg.iva||0)/100;return{s,i,t:s+i}};
 function cartUI(){
   if(!S.cart.length)return show('<h2>Tu Bolsa ROUMANS</h2><p>Tu bolsa está vacía.</p>');
   const t=tot();
-  show(`<h2>Tu Bolsa ROUMANS</h2>${S.cart.map((x,i)=>{const p=S.p.find(q=>q.sku==x.sku);return`<div class="row"><span>${e(p.nombre)}<br><small>${m(p.precio)}</small></span><span><button class="b2" onclick="qty(${i},-1)">−</button> ${x.qty} <button class="b2" onclick="qty(${i},1)">+</button></span></div>`}).join('')}
+  show(`<h2>Tu Bolsa ROUMANS</h2>${S.cart.map((x,i)=>{const p=S.p.find(q=>q.sku==x.sku);return`<div class="row"><span>${e(p.nombre)}${x.color?' · '+e(x.color):''}<br><small>${m(p.precio)}</small></span><span><button class="b2" onclick="qty(${i},-1)">−</button> ${x.qty} <button class="b2" onclick="qty(${i},1)">+</button></span></div>`}).join('')}
   <h3>Datos del cliente</h3><label>Cédula / RUC *</label><div style="display:flex;gap:6px"><input id="c1"><button class="b2" onclick="findC()">Buscar</button></div>
   <div class="g2"><div><label>Teléfono / WhatsApp *</label><input id="c2"></div><div><label>Nombres / Razón social *</label><input id="c3"></div></div>
   <label>Correo</label><input id="c4"><label>Método de pago *</label><select id="c5"><option>Transferencia Bancaria<option>Efectivo / Contra entrega<option>Tarjeta de Crédito / Débito</select>
@@ -92,7 +109,7 @@ async function order(){
   $('#ok').disabled=true;$('#ok').textContent='Procesando…';
   const r=await api({action:'order',cliente:c,items:S.cart,pago:$('#c5').value,obs:$('#c7').value,canal:'Web'});
   if(!r.ok){toast(r.error);$('#ok').disabled=false;$('#ok').textContent='Confirmar pedido';return}
-  const txt=`Hola ROUMANS, pedido ${r.id}\nCliente: ${c.nombre} (${c.cedula})\n`+r.items.map(i=>`- ${i.qty} x ${i.nombre}`).join('\n')+`\nTotal: ${m(r.total)} USD\nPago: ${$('#c5').value}\nEntrega: ${c.direccion}`;
+  const txt=`Hola ROUMANS, pedido ${r.id}\nCliente: ${c.nombre} (${c.cedula})\n`+r.items.map(i=>`- ${i.qty} x ${i.nombre}${i.color?' ('+i.color+')':''}`).join('\n')+`\nTotal: ${m(r.total)} USD\nPago: ${$('#c5').value}\nEntrega: ${c.direccion}`;
   S.cart=[];load();
   show(`<h2>¡Pedido registrado!</h2><p>N° ${e(r.id)} · Total ${m(r.total)} USD</p>${S.cfg.whatsapp?`<a class="b1" style="display:inline-block;text-decoration:none" target="_blank" href="https://wa.me/${e(S.cfg.whatsapp)}?text=${encodeURIComponent(txt)}">Enviar comprobante por WhatsApp</a>`:''} <button class="b2" onclick="hide()">Seguir comprando</button>`);
 }
@@ -105,7 +122,7 @@ async function sync(){if(await adminLoad()){admin();load();toast('Sincronizado')
 const TABS=['Resumen','Productos','Inventario','Ventas','Clientes','Config'];let tab='Resumen',F=null;
 function admin(){
   $('#adm').style.display='block';
-  $('#adm').innerHTML=`<div class="top"><b>ROUMANS ADMIN</b><span>${TABS.map(t=>`<button class="tb ${t==tab?'on':''}" onclick="tab='${t}';F=null;admin()">${t}</button>`).join('')}</span><span><button class="b2" onclick="sync()">Sincronizar</button><button class="b2" onclick="$('#adm').style.display='none'">Ver tienda</button></span></div><div class="pad">${V[tab]()}</div>`;
+  $('#adm').innerHTML=`<div class="top"><b>ROUMANS ADMIN</b><span>${TABS.map(t=>`<button class="tb ${t==tab?'on':''}" onclick="tab='${t}';F=null;admin()">${t}</button>`).join('')}</span><span><button class="b2" onclick="sync()">Sincronizar</button><button class="b2" onclick="$('#adm').style.display='none';history.replaceState(null,'',location.pathname)">Ver tienda</button></span></div><div class="pad">${V[tab]()}</div>`;
 }
 const kp=(a,b)=>`<div>${a}<b>${b}</b></div>`;
 const inp=(k,l,t='text')=>`<div><label>${l}</label><input type="${t}" value="${e(F[k])}" oninput="F.${k}=this.value"></div>`;
@@ -115,32 +132,35 @@ Resumen(){const A=S.A,low=A.PRODUCTOS.filter(x=>+x.stock<=+x.minimo);
 Productos(){
   if(F)return`<div class="fm"><h3>${F._i!=null?'Editar':'Nuevo'} producto</h3><div class="g2">${inp('sku','Código SKU *')}${inp('barcode','Código de barras')}${inp('nombre','Nombre *')}${inp('categoria','Categoría *')}${inp('costo','Costo','number')}${inp('precio','Precio venta *','number')}${inp('stock','Stock actual *','number')}${inp('minimo','Stock mínimo','number')}${inp('unidad','Unidad')}</div>
   <label>Descripción</label><textarea rows="3" oninput="F.descripcion=this.value">${e(F.descripcion)}</textarea>
+  <h4>Colores disponibles</h4><div class="th">${F.colores.map((c,i)=>`<span class="sw"><i style="background:${e(c.h)}"></i>${e(c.n)} <button class="b2" onclick="F.colores.splice(${i},1);admin()">×</button></span>`).join('')||'<small>Sin colores (opcional)</small>'}</div>
+  <div style="display:flex;gap:6px"><input type="color" id="chx" value="#000000" style="width:56px;padding:2px"><input id="chn" placeholder="Nombre del color (ej. Negro)" onkeydown="if(event.key=='Enter')addCol()"><button class="b2" onclick="addCol()">+ Añadir color</button></div>
   <label><input type="checkbox" style="width:auto" ${F.visible=='SI'?'checked':''} onchange="F.visible=this.checked?'SI':'NO'"> Visible en tienda pública</label>
   <h4>Galería (${F.imagenes.length}/8) — la #1 es la portada</h4><div class="th">${F.imagenes.map((u,i)=>`<div><img src="${e(u)}"><br><button class="b2" onclick="F.imagenes.splice(${i},1);admin()">Quitar</button>${i?`<button class="b2" onclick="F.imagenes.unshift(F.imagenes.splice(${i},1)[0]);admin()">★</button>`:''}</div>`).join('')}</div>
   <input type="file" accept="image/*" multiple onchange="up(this)"><div style="display:flex;gap:6px"><input id="url" placeholder="o pega un enlace de imagen (URL)"><button class="b2" onclick="if($('#url').value&&F.imagenes.length<8){F.imagenes.push($('#url').value);admin()}">Añadir</button></div>
-  <button class="b1" onclick="saveP()">Guardar producto</button> <button class="b2" onclick="F=null;admin()">Cancelar</button></div>`;
-  return`<button class="b1" onclick="F={visible:'SI',unidad:'Unidad',imagenes:[]};admin()">+ Nuevo producto</button>`+tbl(['','SKU','Producto','Categoría','Fotos','Precio','Stock',''],S.A.PRODUCTOS.map((x,i)=>[imgs(x)[0]?`<img src="${e(imgs(x)[0])}" width="40">`:'',e(x.sku),e(x.nombre),e(x.categoria),imgs(x).length,m(x.precio),x.stock,`<button class="b2" onclick="F={...S.A.PRODUCTOS[${i}],imagenes:imgs(S.A.PRODUCTOS[${i}]),_i:${i}};admin()">Editar</button><button class="b2" onclick="delP(${i})">Borrar</button>`]))},
+  <button class="b1" onclick="saveP()">Guardar producto</button> <button class="b2" onclick="saveP(true)">Guardar y añadir otro (+)</button> <button class="b2" onclick="F=null;admin()">Cancelar</button></div>`;
+  return`<button class="b1" onclick="F={visible:'SI',unidad:'Unidad',imagenes:[],colores:[]};admin()">+ Nuevo producto</button>`+tbl(['','SKU','Producto','Categoría','Fotos','Precio','Stock',''],S.A.PRODUCTOS.map((x,i)=>[imgs(x)[0]?`<img src="${e(imgs(x)[0])}" width="40">`:'',e(x.sku),e(x.nombre),e(x.categoria),imgs(x).length,m(x.precio),x.stock,`<button class="b2" onclick="F={...S.A.PRODUCTOS[${i}],imagenes:imgs(S.A.PRODUCTOS[${i}]),colores:cols(S.A.PRODUCTOS[${i}]),_i:${i}};admin()">Editar</button><button class="b2" onclick="delP(${i})">Borrar</button>`]))},
 Inventario(){const A=S.A;
   return`<div class="fm"><h3>Movimiento de inventario</h3><div class="g2"><div><label>Producto</label><select id="as">${A.PRODUCTOS.map(p=>`<option value="${e(p.sku)}">${e(p.nombre)} (stock ${p.stock})`).join('')}</select></div><div><label>Tipo</label><select id="at"><option value="ENTRADA">ENTRADA (+)<option value="SALIDA">SALIDA (−)<option value="AJUSTE">FIJAR STOCK EXACTO</select></div><div><label>Cantidad</label><input type="number" id="aq"></div><div><label>Motivo</label><input id="am"></div></div><button class="b1" onclick="adj()">Aplicar ajuste</button></div>
   <h3>Kardex</h3>${tbl(['Fecha','Producto','Tipo','Cant.','Anterior → Nuevo','Motivo'],[...A.KARDEX].reverse().slice(0,200).map(k=>[e(k.fecha),e(k.producto),e(k.tipo),k.cantidad,k.anterior+' → '+k.nuevo,e(k.motivo)]))}`},
 Ventas(){const A=S.A;
   return`<div class="fm"><h3>Venta directa (mostrador)</h3><div class="g2"><div><label>Cédula / RUC</label><input id="v1"></div><div><label>Cliente</label><input id="v2" value="Consumidor final"></div><div><label>Producto</label><select id="v3">${A.PRODUCTOS.map(p=>`<option value="${e(p.sku)}">${e(p.nombre)} (${p.stock})`).join('')}</select></div><div><label>Cantidad</label><input type="number" id="v4" value="1"></div><div><label>Pago</label><select id="v5"><option>Efectivo<option>Transferencia<option>Tarjeta</select></div></div><button class="b1" onclick="manual()">Emitir venta y descontar stock</button></div>
-  ${tbl(['N°','Fecha','Cliente','Artículos','Pago','Total','Estado'],[...A.VENTAS].reverse().map(v=>{let it='';try{it=JSON.parse(v.items).map(i=>i.qty+'× '+i.nombre).join(', ')}catch{}return[e(v.id),e(v.fecha),e(v.cliente),e(it),e(v.pago),m(v.total),`<button class="b2" onclick="est('${e(v.id)}')">${e(v.estado)}</button>`]}))}`},
+  ${tbl(['N°','Fecha','Cliente','Artículos','Pago','Total','Estado'],[...A.VENTAS].reverse().map(v=>{let it='';try{it=JSON.parse(v.items).map(i=>i.qty+'× '+i.nombre+(i.color?' ('+i.color+')':'')).join(', ')}catch{}return[e(v.id),e(v.fecha),e(v.cliente),e(it),e(v.pago),m(v.total),`<button class="b2" onclick="est('${e(v.id)}')">${e(v.estado)}</button>`]}))}`},
 Clientes(){
   if(!F)F={cedula:'',nombre:'',telefono:'',correo:'',direccion:''};
   return`<div class="fm"><h3>Crear / editar cliente</h3><div class="g2">${inp('cedula','Cédula / RUC *')}${inp('nombre','Nombres / Razón social *')}${inp('telefono','Teléfono *')}${inp('correo','Correo')}${inp('direccion','Dirección')}</div><button class="b1" onclick="saveC()">Guardar cliente</button></div>`+tbl(['Cédula','Nombres','Teléfono','Correo','Dirección',''],S.A.CLIENTES.map((c,i)=>[e(c.cedula),e(c.nombre),e(c.telefono),e(c.correo),e(c.direccion),`<button class="b2" onclick="F={...S.A.CLIENTES[${i}]};admin()">Editar</button><button class="b2" onclick="delC(${i})">Borrar</button>`]))},
 Config(){const c=S.A.config;
-  return`<div class="fm"><h3>Configuración de la tienda</h3><label>Impuesto IVA (%)</label><input id="f1" type="number" value="${e(c.iva)}"><label>WhatsApp pedidos (con código país, ej. 593999999999)</label><input id="f2" value="${e(c.whatsapp)}"><label>Barra de anuncio</label><input id="f3" value="${e(c.anuncio)}"><label>Título principal</label><input id="f4" value="${e(c.hero)}"><label>Datos bancarios</label><textarea id="f5" rows="4">${e(c.banco)}</textarea><label>Nueva clave de administrador (vacío = no cambiar)</label><input id="f6" type="password"><button class="b1" onclick="saveCfg()">Guardar configuración</button></div>`}
+  return`<div class="fm"><h3>Configuración de la tienda</h3><label>Impuesto IVA (%)</label><input id="f1" type="number" value="${e(c.iva)}"><label>WhatsApp de la tienda — icono público y pedidos (con código de país, ej. 593999999999)</label><input id="f2" value="${e(c.whatsapp)}"><label>Barra de anuncio</label><input id="f3" value="${e(c.anuncio)}"><label>Título principal</label><input id="f4" value="${e(c.hero)}"><label>Datos bancarios</label><textarea id="f5" rows="4">${e(c.banco)}</textarea><label>Nueva clave de administrador (vacío = no cambiar)</label><input id="f6" type="password"><button class="b1" onclick="saveCfg()">Guardar configuración</button></div>`}
 };
+function addCol(){const n=$('#chn').value.trim();if(!n)return toast('Escribe el nombre del color');F.colores.push({n,h:$('#chx').value});admin()}
 async function up(inp){
   for(const f of [...inp.files]){if(F.imagenes.length>=8)break;toast('Subiendo imagen…');const r=await api({action:'upload',key:S.key,data:await rz(f)});r.ok?F.imagenes.push(r.url):toast(r.error)}admin();
 }
 async function saveTable(t,rows){const r=await api({action:'save',key:S.key,table:t,rows});if(!r.ok)toast(r.error);else toast('Guardado');return r.ok}
-async function saveP(){
+async function saveP(more){
   if(!F.sku||!F.nombre||F.precio==null)return toast('Completa SKU, nombre y precio');
-  const o={...F,imagenes:JSON.stringify(F.imagenes)};delete o._i;const l=[...S.A.PRODUCTOS];
+  const o={...F,imagenes:JSON.stringify(F.imagenes),colores:JSON.stringify(F.colores)};delete o._i;const l=[...S.A.PRODUCTOS];
   if(F._i!=null)l[F._i]=o;else if(l.some(x=>x.sku==o.sku))return toast('SKU repetido');else l.push(o);
-  if(await saveTable('PRODUCTOS',l)){S.A.PRODUCTOS=l;F=null;admin();load()}
+  if(await saveTable('PRODUCTOS',l)){S.A.PRODUCTOS=l;F=more?{visible:'SI',unidad:'Unidad',imagenes:[],colores:[]}:null;admin();load()}
 }
 async function delP(i){if(!confirm('¿Borrar producto?'))return;const l=S.A.PRODUCTOS.filter((_,j)=>j!=i);if(await saveTable('PRODUCTOS',l)){S.A.PRODUCTOS=l;admin();load()}}
 async function adj(){
@@ -164,5 +184,6 @@ async function saveCfg(){
   if(await saveTable('CONFIGURACION',Object.keys(c).map(k=>({clave:k,valor:c[k]})))){
     S.A.config=c;const nk=$('#f6').value;if(nk){const r=await api({action:'setKey',key:S.key,newKey:nk});if(r.ok)S.key=nk}load();admin()}
 }
+addEventListener('hashchange',()=>{if(location.hash=='#admin')loginUI()});
 load();if(location.hash=='#admin')loginUI();
 </script></body></html>

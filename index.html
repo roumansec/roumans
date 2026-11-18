@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="es"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ROUMANS — Tienda Oficial</title>
+<title>Roumans</title>
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,Segoe UI,Arial,sans-serif;color:#111;background:#fafafa}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,Segoe UI,Arial,sans-serif;color:#111;background:#fbfcfe}
 #bar{background:#111;color:#fff;text-align:center;font-size:13px;padding:8px}
 header{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:10px 20px;background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:5}
 header>img{height:38px;flex:none}#chips{flex:1;display:flex;gap:6px;overflow-x:auto;justify-content:center;scrollbar-width:none;min-width:0}#chips::-webkit-scrollbar{display:none}
@@ -37,6 +37,29 @@ input,select,textarea{width:100%;padding:9px;border:1px solid #ccc;border-radius
 .tw{overflow-x:auto;background:#fff;border-radius:10px;margin:10px 0}table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:8px 10px;text-align:left;border-bottom:1px solid #eee;white-space:nowrap}th{background:#fafafa}
 .fm{background:#fff;padding:16px;border-radius:12px;margin:10px 0}#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#111;color:#fff;padding:10px 18px;border-radius:8px;z-index:50;display:none}
 @media(max-width:600px){main{padding:18px 10px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card .bd{padding:8px;font-size:13px}.card .bd small{font-size:11px}.pr{font-size:15px}.plus{width:30px;height:30px;font-size:18px}.hero{padding:40px 16px}}
+
+/* ===== PANEL DEL CARRITO ===== */
+#cv{position:fixed;inset:0;background:#0b1b2e73;display:none;z-index:25;opacity:0;transition:opacity .25s}#cv.on{opacity:1}
+#cd{position:absolute;right:0;top:0;bottom:0;width:min(100%,480px);background:#fcfcff;overflow-y:auto;padding:34px 20px 40px;transform:translateX(100%);transition:transform .28s ease;box-shadow:-8px 0 30px #0003}#cv.on #cd{transform:none}
+#cd h2{margin:6px 48px 6px;text-align:center;font-size:clamp(30px,9vw,42px);font-weight:800;letter-spacing:-.02em;color:#0f1c2e;line-height:1.1}
+#cs2{margin:0 0 28px;text-align:center;color:#7b8794;font-weight:600;font-size:clamp(16px,4.6vw,20px)}
+#cxb{position:absolute;top:14px;right:14px;width:44px;height:44px;border-radius:50%;border:0;background:0;color:#4b5563;display:grid;place-items:center;padding:0}#cxb:focus-visible{outline:3px solid #63a4f5;outline-offset:1px}
+.ci{display:flex;align-items:stretch;gap:14px;background:#edf1f4;border:2px solid #e2e8ed;border-radius:32px;padding:16px;margin-bottom:16px}
+.cim{flex:none;width:clamp(76px,23vw,112px);aspect-ratio:1;border-radius:26px;background:#fff;overflow:hidden}.cim img{width:100%;height:100%;object-fit:cover;display:block}
+.cnm{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;padding-top:4px;color:#0f1c2e}.cnm b{font-size:16px;line-height:1.25;overflow-wrap:anywhere}.cnm small{color:#6b7785;font-size:13px}
+.crt{flex:none;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end;gap:10px}
+.ctr{background:0;border:0;color:#7b8794;width:40px;height:40px;display:grid;place-items:center;padding:0;border-radius:50%}.ctr:hover{color:#e11d48}
+.cq{display:flex;align-items:center;background:#fff;border-radius:999px;padding:4px}.cq button{width:34px;height:34px;border:0;background:0;border-radius:50%;font-size:24px;color:#0f1c2e;padding:0;line-height:1;display:grid;place-items:center}.cq span{min-width:26px;text-align:center;font-weight:700;font-size:17px;color:#0f1c2e}
+.ctr:focus-visible,.cq button:focus-visible{outline:3px solid #63a4f5}
+#tt{margin:22px 4px 8px;color:#475467}#tt div{display:flex;justify-content:space-between;padding:4px 0;font-size:15px}#tt .tl{font-size:22px;font-weight:800;color:#0f1c2e;border-top:1px solid #e2e8ed;margin-top:6px;padding-top:12px}
+#cf h3{color:#0f1c2e;margin:22px 4px 6px}#cf label{margin-left:4px}
+#cd input,#cd select,#cd textarea{border-radius:14px;background:#fff;border:1px solid #d9e0e6;padding:12px}
+#pi{background:#edf1f4;padding:10px 12px;border-radius:14px;white-space:pre-wrap;font-size:14px;margin:0 0 8px;color:#334155}
+#ok{width:100%;padding:16px;border-radius:999px;font-size:17px;margin-top:8px}
+.ce{text-align:center;padding:30px 0;color:#6b7785}
+.pm{display:grid;grid-template-columns:auto 1fr auto;gap:6px 10px;align-items:center;padding:10px 0;border-bottom:1px solid #eee}.pm>.pi{grid-column:2/4}.pm input{margin:0}
+@media(max-width:600px){#cd .g2{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){#cd,#cv{transition:none}}
 </style></head><body>
 <div id="bar"></div>
 <header><img src="logo.png" alt="ROUMANS"><nav id="chips"></nav>
@@ -46,6 +69,7 @@ input,select,textarea{width:100%;padding:9px;border:1px solid #ccc;border-radius
 <section class="hero"><h1 id="hero"></h1><a href="#cat" onclick="document.getElementById('cat').scrollIntoView();return false">Explorar productos</a></section>
 <main id="cat"><h2>Nuestros Productos</h2><div class="grid" id="grid"><p>Cargando…</p></div></main>
 <footer><div class="soc" id="soc"></div>© 2026 ROUMANS. Todos los derechos reservados.</footer>
+<div id="cv" onclick="if(event.target==this)closeCart()"><aside id="cd" role="dialog" aria-modal="true" aria-labelledby="ct"><button id="cxb" onclick="closeCart()" aria-label="Cerrar carrito"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button><h2 id="ct">Tu carrito</h2><p id="cs2"></p><div id="cl"></div><div id="cf"></div></aside></div>
 <div class="ov" id="ov"><div id="ovc"></div></div><div id="adm"></div><div id="toast"></div>
 <script>
 const API='https://script.google.com/macros/s/AKfycbwZCEVOcMgCrp7p0eCaqMANx0IG8Fcxd9KdbQLVkuEXE_V0MSHv2270GV3St81R7k1l/exec'; // ← URL de implementación de Apps Script (termina en /exec)
@@ -94,7 +118,7 @@ function paint(){social();
 function prod(sku){
   const p=S.p.find(x=>x.sku==sku),im=imgs(p),co=cols(p);CP=p;SEL=(co[0]||{}).n||'';
   show(`${im[0]?`<img class="main-img" id="mi" src="${e(im[0])}">`:''}<div class="th">${im.map(u=>`<img src="${e(u)}" onclick="$('#mi').src=this.src">`).join('')}</div>
-  <small>${e(p.categoria)} · Código ${e(p.sku)}</small><h2>${e(p.nombre)}</h2><div class="pr">${m(p.precio)} USD</div><p>${e(p.descripcion)}</p>
+  <small>${e(p.categoria)} · Código ${e(p.sku)}</small><h2>${e(p.nombre)}</h2><div class="pr">${m(p.precio)} USD <small style="font-weight:400;color:#777;font-size:13px">IVA incluido</small></div><p>${e(p.descripcion)}</p>
   ${co.length?`<label>Color</label><div class="th" id="cs">${co.map((c,i)=>`<button class="sw ${i?'':'on'}" onclick="selCol(${i})"><i style="background:${e(c.h)}"></i>${e(c.n)}</button>`).join('')}</div>`:''}
   <label>Cantidad</label><input type="number" id="q" value="1" min="1" max="${+p.stock}">
   <button class="b1" ${+p.stock<=0?'disabled':''} onclick="add('${e(p.sku)}')">${+p.stock<=0?'Agotado':'Agregar a la bolsa'}</button>`);
@@ -106,31 +130,72 @@ function add(sku){
   if(tq+q>+p.stock)return toast('Stock disponible: '+p.stock);
   c?c.qty+=q:S.cart.push({sku,qty:q,color});hide();paint();toast('Agregado a la bolsa');
 }
-const tot=()=>{const s=S.cart.reduce((a,x)=>a+x.qty*S.p.find(p=>p.sku==x.sku).precio,0),i=s*(+S.cfg.iva||0)/100;return{s,i,t:s+i}};
-function cartUI(){
-  if(!S.cart.length)return show('<h2>Tu Bolsa ROUMANS</h2><p>Tu bolsa está vacía.</p>');
-  const t=tot();
-  show(`<h2>Tu Bolsa ROUMANS</h2>${S.cart.map((x,i)=>{const p=S.p.find(q=>q.sku==x.sku);return`<div class="row"><span>${e(p.nombre)}${x.color?' · '+e(x.color):''}<br><small>${m(p.precio)}</small></span><span><button class="b2" onclick="qty(${i},-1)">−</button> ${x.qty} <button class="b2" onclick="qty(${i},1)">+</button></span></div>`}).join('')}
+/* IVA incluido: el precio publicado ya trae el IVA; aquí solo se desglosa */
+const ivaR=()=>{const v=parseFloat(S.cfg.iva);return isNaN(v)?15:v},r2=n=>Math.round((+n+Number.EPSILON)*100)/100;
+const split=t=>{const T=r2(t),B=r2(T/(1+ivaR()/100));return{t:T,s:B,i:r2(T-B)}};
+const tot=()=>split(S.cart.reduce((a,x)=>a+x.qty*S.p.find(p=>p.sku==x.sku).precio,0));
+
+/* ===== MÉTODOS DE PAGO (configurables desde admin) ===== */
+const PD=()=>[{n:'Transferencia Bancaria',on:1,t:'banco',info:''},{n:'Efectivo / Contra entrega',on:1,t:'',info:''},{n:'Tarjeta de Crédito / Débito',on:1,t:'',info:''}];
+const payList=c=>{try{const a=Array.isArray(c.pagos)?c.pagos:JSON.parse(c.pagos);if(Array.isArray(a)&&a.length)return a.map(x=>({n:String(x.n||''),on:x.on==1?1:0,t:x.t||'',info:x.info||''}))}catch{}return PD()};
+let CF=0,PAYS=[];
+function payUI(){
+  const l=payList(S.cfg).filter(x=>x.on&&x.n.trim());PAYS=l.length?l:PD();
+  const sel=$('#c5'),cur=sel.value;sel.innerHTML=PAYS.map(x=>`<option>${e(x.n)}</option>`).join('');
+  if(PAYS.some(x=>x.n==cur))sel.value=cur;payInfo();
+}
+function payInfo(){const x=PAYS[$('#c5').selectedIndex]||{},t=x.t=='banco'?S.cfg.banco:x.info,b=$('#pi');b.textContent=t||'';b.style.display=t?'block':'none'}
+
+/* ===== PANEL DEL CARRITO ===== */
+const FORM=`<div id="tt"></div>
   <h3>Datos del cliente</h3><label>Cédula / RUC *</label><div style="display:flex;gap:6px"><input id="c1"><button class="b2" onclick="findC()">Buscar</button></div>
   <div class="g2"><div><label>Teléfono / WhatsApp *</label><input id="c2"></div><div><label>Nombres / Razón social *</label><input id="c3"></div></div>
-  <label>Correo</label><input id="c4"><label>Método de pago *</label><select id="c5"><option>Transferencia Bancaria<option>Efectivo / Contra entrega<option>Tarjeta de Crédito / Débito</select>
-  <pre style="background:#f4f4f4;padding:8px;border-radius:8px;white-space:pre-wrap">${e(S.cfg.banco)}</pre>
+  <label>Correo</label><input id="c4"><label>Método de pago *</label><select id="c5" onchange="payInfo()"></select><div id="pi"></div>
   <label>Dirección de entrega / Ciudad *</label><input id="c6"><label>Observación</label><input id="c7">
-  <p>Subtotal ${m(t.s)}<br>IVA (${+S.cfg.iva||0}%) ${m(t.i)}<br><b style="font-size:20px">Total ${m(t.t)} USD</b></p>
-  <button class="b1" id="ok" onclick="order()">Confirmar pedido</button>`);
+  <button class="b1" id="ok" onclick="order()">Confirmar pedido</button>`;
+function cartUI(){
+  const v=$('#cv');v.style.display='block';document.body.style.overflow='hidden';
+  if(!CF){CF=1;$('#cf').innerHTML=FORM}
+  payUI();cartRender();
+  requestAnimationFrame(()=>{v.classList.add('on');$('#cxb').focus({preventScroll:true})});
 }
-function qty(i,d){const x=S.cart[i],p=S.p.find(q=>q.sku==x.sku);x.qty+=d;if(x.qty>+p.stock){x.qty=+p.stock;toast('Stock máximo')}if(x.qty<=0)S.cart.splice(i,1);paint();cartUI()}
+function closeCart(){const v=$('#cv');v.classList.remove('on');document.body.style.overflow='';setTimeout(()=>{if(!v.classList.contains('on'))v.style.display='none'},280)}
+addEventListener('keydown',ev=>{if(ev.key=='Escape'&&$('#cv').classList.contains('on'))closeCart()});
+const TR='<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12M10 11v6M14 11v6"/></svg>';
+function cartRender(){
+  S.cart=S.cart.filter(x=>S.p.some(p=>p.sku==x.sku));
+  const n=S.cart.reduce((a,x)=>a+x.qty,0),em=!S.cart.length;
+  $('#cs2').textContent=em?'Aún no has agregado productos':n+(n==1?' producto':' productos');
+  $('#cf').style.display=em?'none':'block';
+  if(em){$('#cl').innerHTML='<div class="ce"><p>Tu carrito está vacío.</p><button class="b1" onclick="closeCart()">Seguir comprando</button></div>';return}
+  $('#cl').innerHTML=S.cart.map((x,i)=>{const p=S.p.find(q=>q.sku==x.sku),im=imgs(p)[0];
+    return`<div class="ci"><div class="cim">${im?`<img src="${e(im)}" alt="">`:''}</div><div class="cnm"><b>${e(p.nombre)}</b>${x.color?`<small>${e(x.color)}</small>`:''}<small>${m(p.precio)} c/u</small></div><div class="crt"><button class="ctr" onclick="rmv(${i})" aria-label="Quitar del carrito">${TR}</button><div class="cq"><button onclick="qty(${i},-1)" aria-label="Menos">−</button><span>${x.qty}</span><button onclick="qty(${i},1)" aria-label="Más">+</button></div></div></div>`}).join('');
+  const t=tot();
+  $('#tt').innerHTML=`<div><span>Subtotal (sin IVA)</span><span>${m(t.s)}</span></div><div><span>IVA ${ivaR()}% (incluido en el precio)</span><span>${m(t.i)}</span></div><div class="tl"><span>Total</span><span>${m(t.t)} USD</span></div>`;
+}
+function qty(i,d){
+  const x=S.cart[i],p=S.p.find(q=>q.sku==x.sku),o=S.cart.filter((y,j)=>j!=i&&y.sku==x.sku).reduce((a,y)=>a+y.qty,0);
+  x.qty+=d;if(x.qty+o>+p.stock){x.qty=Math.max(0,+p.stock-o);toast('Stock máximo')}
+  if(x.qty<=0)S.cart.splice(i,1);paint();cartRender();
+}
+function rmv(i){S.cart.splice(i,1);paint();cartRender()}
 async function findC(){const r=await api({action:'client',cedula:$('#c1').value.trim()});if(r.cliente){$('#c2').value=r.cliente.telefono;$('#c3').value=r.cliente.nombre;$('#c4').value=r.cliente.correo;$('#c6').value=r.cliente.direccion}else toast('Cliente nuevo')}
 async function order(){
   const c={cedula:$('#c1').value.trim(),telefono:$('#c2').value.trim(),nombre:$('#c3').value.trim(),correo:$('#c4').value.trim(),direccion:$('#c6').value.trim()};
   if(!c.cedula||!c.telefono||!c.nombre||!c.direccion)return toast('Completa los campos obligatorios (*)');
+  const pg=$('#c5').value,ob=$('#c7').value;
   $('#ok').disabled=true;$('#ok').textContent='Procesando…';
-  const r=await api({action:'order',cliente:c,items:S.cart,pago:$('#c5').value,obs:$('#c7').value,canal:'Web'});
+  const r=await api({action:'order',cliente:c,items:S.cart,pago:pg,obs:ob,canal:'Web',ivaIncluido:true});
   if(!r.ok){toast(r.error);$('#ok').disabled=false;$('#ok').textContent='Confirmar pedido';return}
-  const txt=`Hola ROUMANS, pedido ${r.id}\nCliente: ${c.nombre} (${c.cedula})\n`+r.items.map(i=>`- ${i.qty} x ${i.nombre}${i.color?' ('+i.color+')':''}`).join('\n')+`\nTotal: ${m(r.total)} USD\nPago: ${$('#c5').value}\nEntrega: ${c.direccion}`;
-  {const sb=r.items.reduce((a,i)=>a+i.qty*i.precio,0);LAST={id:r.id,fecha:now(),cli:c,items:r.items,pago:$('#c5').value,obs:$('#c7').value,sub:sb,iva:+r.total-sb,total:+r.total}}
-  S.cart=[];load();
-  show(`<h2>¡Pedido registrado!</h2><p>N° ${e(r.id)} · Total ${m(r.total)} USD</p>${S.cfg.whatsapp?`<a class="b1" style="display:inline-block;text-decoration:none" target="_blank" href="https://wa.me/${e(S.cfg.whatsapp)}?text=${encodeURIComponent(txt)}">Enviar comprobante por WhatsApp</a>`:''} <button class="b1" onclick="pdf(LAST)">Descargar comprobante PDF</button> <button class="b2" onclick="hide()">Seguir comprando</button>`);
+  /* el precio de la tienda ya incluye IVA: total = suma de precios; el IVA solo se desglosa */
+  const T=split(r.items.reduce((a,i)=>a+i.qty*i.precio,0));
+  if(Math.abs(T.t-(+r.total))>.01)console.warn('El total que guardó la hoja ('+r.total+') difiere del precio con IVA incluido ('+T.t+'). Actualiza el Apps Script.');
+  const txt=`Hola ROUMANS, pedido ${r.id}\nCliente: ${c.nombre} (${c.cedula})\n`+r.items.map(i=>`- ${i.qty} x ${i.nombre}${i.color?' ('+i.color+')':''}`).join('\n')+`\nTotal (IVA incluido): ${m(T.t)} USD\nPago: ${pg}\nEntrega: ${c.direccion}`;
+  LAST={id:r.id,fecha:now(),cli:c,items:r.items,pago:pg,obs:ob,sub:T.s,iva:T.i,total:T.t,inc:1};
+  S.cart=[];['c1','c2','c3','c4','c6','c7'].forEach(k=>$('#'+k).value='');
+  $('#ok').disabled=false;$('#ok').textContent='Confirmar pedido';
+  load();closeCart();
+  show(`<h2>¡Pedido registrado!</h2><p>N° ${e(r.id)} · Total ${m(T.t)} USD (IVA incluido)</p>${S.cfg.whatsapp?`<a class="b1" style="display:inline-block;text-decoration:none" target="_blank" href="https://wa.me/${e(S.cfg.whatsapp)}?text=${encodeURIComponent(txt)}">Enviar comprobante por WhatsApp</a>`:''} <button class="b1" onclick="pdf(LAST)">Descargar comprobante PDF</button> <button class="b2" onclick="hide()">Seguir comprando</button>`);
 }
 
 
@@ -156,8 +221,8 @@ async function pdf(v){
     d.text(String(i.qty),18,y).text(t,32,y).text(m(i.precio),158,y,{align:'right'}).text(m(i.qty*i.precio),192,y,{align:'right'});
     y+=t.length*5+1.5;d.setDrawColor(225).setLineWidth(.2).line(15,y-3,195,y-3);y+=1.5});
   if(y>235){d.addPage();y=20}y+=4;
-  d.text('Subtotal',150,y,{align:'right'}).text(m(v.sub),192,y,{align:'right'});y+=6;
-  d.text('IVA ('+(+S.cfg.iva||0)+'%)',150,y,{align:'right'}).text(m(v.iva),192,y,{align:'right'});y+=8;
+  d.text(v.inc?'Subtotal (sin IVA)':'Subtotal',150,y,{align:'right'}).text(m(v.sub),192,y,{align:'right'});y+=6;
+  d.text('IVA ('+ivaR()+'%'+(v.inc?' incluido':'')+')',150,y,{align:'right'}).text(m(v.iva),192,y,{align:'right'});y+=8;
   d.setFont('helvetica','bold').setFontSize(13).text('TOTAL',150,y,{align:'right'}).text(m(v.total)+' USD',192,y,{align:'right'});y+=10;
   if(v.obs){d.setFont('helvetica','normal').setFontSize(10).text(d.splitTextToSize('Observación: '+v.obs,180),15,y);y+=10}
   d.setFont('helvetica','normal').setFontSize(9).setTextColor(110);
@@ -173,10 +238,10 @@ function loginUI(){show('<h2>Acceso administrador</h2><label>Clave de acceso</la
 async function login(){S.key=$('#k').value;if(!await adminLoad())return;hide();admin()}
 async function adminLoad(){const r=await api({action:'admin',key:S.key});if(!r.ok){toast(r.error);return false}S.A=r;return true}
 async function sync(){if(await adminLoad()){admin();load();toast('Sincronizado')}}
-const TABS=['Resumen','Productos','Inventario','Ventas','Clientes','Config'];let tab='Resumen',F=null;
+const TABS=['Resumen','Productos','Inventario','Ventas','Clientes','Config'];let tab='Resumen',F=null,PM=null,CD=null;
 function admin(){
   $('#adm').style.display='block';
-  $('#adm').innerHTML=`<div class="top"><b>ROUMANS ADMIN</b><span>${TABS.map(t=>`<button class="tb ${t==tab?'on':''}" onclick="tab='${t}';F=null;admin()">${t}</button>`).join('')}</span><span><button class="b2" onclick="sync()">Sincronizar</button><button class="b2" onclick="$('#adm').style.display='none';history.replaceState(null,'',location.pathname)">Ver tienda</button></span></div><div class="pad">${V[tab]()}</div>`;
+  $('#adm').innerHTML=`<div class="top"><b>ROUMANS ADMIN</b><span>${TABS.map(t=>`<button class="tb ${t==tab?'on':''}" onclick="tab='${t}';F=null;PM=null;CD=null;admin()">${t}</button>`).join('')}</span><span><button class="b2" onclick="sync()">Sincronizar</button><button class="b2" onclick="$('#adm').style.display='none';history.replaceState(null,'',location.pathname)">Ver tienda</button></span></div><div class="pad">${V[tab]()}</div>`;
 }
 const kp=(a,b)=>`<div>${a}<b>${b}</b></div>`;
 const inp=(k,l,t='text')=>`<div><label>${l}</label><input type="${t}" value="${e(F[k])}" oninput="F.${k}=this.value"></div>`;
@@ -184,7 +249,7 @@ const V={
 Resumen(){const A=S.A,low=A.PRODUCTOS.filter(x=>+x.stock<=+x.minimo);
   return`<div class="kp">${kp('Ingresos por ventas',m(A.VENTAS.reduce((a,x)=>a+ +x.total,0)))}${kp('Valor inventario (costo)',m(A.PRODUCTOS.reduce((a,x)=>a+x.costo*x.stock,0)))}${kp('Alertas de stock bajo',low.length)}${kp('Clientes',A.CLIENTES.length)}</div><h3>Productos con stock bajo</h3>${tbl(['Producto','Stock','Mínimo'],low.map(x=>[e(x.nombre),x.stock,x.minimo]))}`},
 Productos(){
-  if(F)return`<div class="fm"><h3>${F._i!=null?'Editar':'Nuevo'} producto</h3><div class="g2">${inp('sku','Código SKU *')}${inp('barcode','Código de barras')}${inp('nombre','Nombre *')}${inp('categoria','Categoría *')}${inp('costo','Costo','number')}${inp('precio','Precio venta *','number')}${inp('stock','Stock actual *','number')}${inp('minimo','Stock mínimo','number')}${inp('unidad','Unidad')}</div>
+  if(F)return`<div class="fm"><h3>${F._i!=null?'Editar':'Nuevo'} producto</h3><div class="g2">${inp('sku','Código SKU *')}${inp('barcode','Código de barras')}${inp('nombre','Nombre *')}${inp('categoria','Categoría *')}${inp('costo','Costo','number')}${inp('precio','Precio venta (IVA incluido) *','number')}${inp('stock','Stock actual *','number')}${inp('minimo','Stock mínimo','number')}${inp('unidad','Unidad')}</div>
   <label>Descripción</label><textarea rows="3" oninput="F.descripcion=this.value">${e(F.descripcion)}</textarea>
   <h4>Colores disponibles</h4><div class="th">${F.colores.map((c,i)=>`<span class="sw"><i style="background:${e(c.h)}"></i>${e(c.n)} <button class="b2" onclick="F.colores.splice(${i},1);admin()">×</button></span>`).join('')||'<small>Sin colores (opcional)</small>'}</div>
   <div style="display:flex;gap:6px"><input type="color" id="chx" value="#000000" style="width:56px;padding:2px"><input id="chn" placeholder="Nombre del color (ej. Negro)" onkeydown="if(event.key=='Enter')addCol()"><button class="b2" onclick="addCol()">+ Añadir color</button></div>
@@ -202,8 +267,12 @@ Ventas(){const A=S.A;
 Clientes(){
   if(!F)F={cedula:'',nombre:'',telefono:'',correo:'',direccion:''};
   return`<div class="fm"><h3>Crear / editar cliente</h3><div class="g2">${inp('cedula','Cédula / RUC *')}${inp('nombre','Nombres / Razón social *')}${inp('telefono','Teléfono *')}${inp('correo','Correo')}${inp('direccion','Dirección')}</div><button class="b1" onclick="saveC()">Guardar cliente</button></div>`+tbl(['Cédula','Nombres','Teléfono','Correo','Dirección',''],S.A.CLIENTES.map((c,i)=>[e(c.cedula),e(c.nombre),e(c.telefono),e(c.correo),e(c.direccion),`<button class="b2" onclick="F={...S.A.CLIENTES[${i}]};admin()">Editar</button><button class="b2" onclick="delC(${i})">Borrar</button>`]))},
-Config(){const c=S.A.config;
-  return`<div class="fm"><h3>Configuración de la tienda</h3><label>Impuesto IVA (%)</label><input id="f1" type="number" value="${e(c.iva)}"><label>WhatsApp de la tienda — icono público y pedidos (con código de país, ej. 593999999999)</label><input id="f2" value="${e(c.whatsapp)}"><label>Barra de anuncio</label><input id="f3" value="${e(c.anuncio)}"><label>Título principal</label><input id="f4" value="${e(c.hero)}"><label>Datos bancarios</label><textarea id="f5" rows="4">${e(c.banco)}</textarea><label>Nueva clave de administrador (vacío = no cambiar)</label><input id="f6" type="password"><button class="b1" onclick="saveCfg()">Guardar configuración</button></div>`}
+Config(){const c={...S.A.config,...(CD||{})};if(!PM)PM=payList(S.A.config);
+  return`<div class="fm"><h3>Configuración de la tienda</h3><label>Impuesto IVA (%) — ya incluido en los precios de venta</label><input id="f1" type="number" value="${e(c.iva)}"><label>WhatsApp de la tienda — icono público y pedidos (con código de país, ej. 593999999999)</label><input id="f2" value="${e(c.whatsapp)}"><label>Barra de anuncio</label><input id="f3" value="${e(c.anuncio)}"><label>Título principal</label><input id="f4" value="${e(c.hero)}">
+  <h4>Métodos de pago que ve el cliente</h4><small>Marca los que quieres ofrecer en el carrito. Lo que escribas en “Instrucciones” se muestra al cliente al elegir ese método.</small>
+  ${PM.map((x,i)=>`<div class="pm"><input type="checkbox" style="width:auto" ${x.on?'checked':''} onchange="PM[${i}].on=this.checked?1:0" aria-label="Mostrar en la tienda"><input type="text" value="${e(x.n)}" oninput="PM[${i}].n=this.value" placeholder="Nombre del método"><button class="b2" onclick="pmDel(${i})" aria-label="Quitar">×</button><div class="pi">${x.t=='banco'?'<small>Muestra los “Datos bancarios” de abajo.</small>':`<input type="text" value="${e(x.info)}" oninput="PM[${i}].info=this.value" placeholder="Instrucciones (opcional)">`}</div></div>`).join('')}
+  <button class="b2" onclick="pmAdd()">+ Añadir método de pago</button>
+  <label style="display:block;margin-top:12px">Datos bancarios (se muestran al elegir Transferencia)</label><textarea id="f5" rows="4">${e(c.banco)}</textarea><label>Nueva clave de administrador (vacío = no cambiar)</label><input id="f6" type="password"><button class="b1" onclick="saveCfg()">Guardar configuración</button></div>`}
 };
 function addCol(){const n=$('#chn').value.trim();if(!n)return toast('Escribe el nombre del color');F.colores.push({n,h:$('#chx').value});admin()}
 async function up(inp){
@@ -233,10 +302,15 @@ async function saveC(){
   const l=S.A.CLIENTES.filter(c=>c.cedula!=F.cedula);l.push(F);if(await saveTable('CLIENTES',l)){S.A.CLIENTES=l;F=null;admin()}
 }
 async function delC(i){if(!confirm('¿Borrar cliente?'))return;const l=S.A.CLIENTES.filter((_,j)=>j!=i);if(await saveTable('CLIENTES',l)){S.A.CLIENTES=l;admin()}}
+const draftCfg=()=>{if($('#f1'))CD={iva:$('#f1').value,whatsapp:$('#f2').value,anuncio:$('#f3').value,hero:$('#f4').value,banco:$('#f5').value}};
+function pmAdd(){draftCfg();PM.push({n:'',on:1,t:'',info:''});admin()}
+function pmDel(i){draftCfg();PM.splice(i,1);admin()}
 async function saveCfg(){
-  const c={iva:$('#f1').value,whatsapp:$('#f2').value.replace(/\D/g,''),anuncio:$('#f3').value,hero:$('#f4').value,banco:$('#f5').value};
+  const pays=(PM||payList(S.A.config)).filter(x=>x.n.trim());
+  if(!pays.some(x=>x.on))return toast('Activa al menos un método de pago');
+  const c={...S.A.config,iva:$('#f1').value,whatsapp:$('#f2').value.replace(/\D/g,''),anuncio:$('#f3').value,hero:$('#f4').value,banco:$('#f5').value,pagos:JSON.stringify(pays)};
   if(await saveTable('CONFIGURACION',Object.keys(c).map(k=>({clave:k,valor:c[k]})))){
-    S.A.config=c;const nk=$('#f6').value;if(nk){const r=await api({action:'setKey',key:S.key,newKey:nk});if(r.ok)S.key=nk}load();admin()}
+    S.A.config=c;PM=null;CD=null;const nk=$('#f6').value;if(nk){const r=await api({action:'setKey',key:S.key,newKey:nk});if(r.ok)S.key=nk}load();admin()}
 }
 addEventListener('hashchange',()=>{if(location.hash=='#admin')loginUI()});
 load();if(location.hash=='#admin')loginUI();

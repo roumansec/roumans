@@ -40,7 +40,7 @@ input,select,textarea{width:100%;padding:9px;border:1px solid #ccc;border-radius
 <footer><div class="soc" id="soc"></div>© 2026 ROUMANS. Todos los derechos reservados.</footer>
 <div class="ov" id="ov"><div id="ovc"></div></div><div id="adm"></div><div id="toast"></div>
 <script>
-const API='PEGA_AQUI_LA_URL_DEL_WEB_APP'; // ← URL de implementación de Apps Script (termina en /exec)
+const API='https://script.google.com/macros/s/AKfycbwZCEVOcMgCrp7p0eCaqMANx0IG8Fcxd9KdbQLVkuEXE_V0MSHv2270GV3St81R7k1l/exec'; // ← URL de implementación de Apps Script (termina en /exec)
 const $=s=>document.querySelector(s),e=s=>String(s??'').replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';'),m=n=>'$'+(+n||0).toFixed(2);
 const S={p:[],cfg:{},cart:[],A:null,key:'',cat:'Todas'};
 const BAD=API=>API.startsWith('PEGA')?'Falta pegar la URL del Web App en index.html (const API)':!/script\.google\.com\/macros\/s\/.+\/exec/.test(API)?'La URL debe ser la de Apps Script y terminar en /exec':'';

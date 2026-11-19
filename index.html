@@ -9,7 +9,7 @@
 *{box-sizing:border-box}body{margin:0;font-family:system-ui,Segoe UI,Arial,sans-serif;color:#111;background:#f5f5f7}
 #bar{background:#111;color:#fff;text-align:center;font-size:13px;padding:8px}
 header{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:10px 20px;background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:5}
-header>img{height:38px;flex:none}#chips{flex:1;display:flex;gap:6px;overflow-x:auto;justify-content:center;scrollbar-width:none;min-width:0}#chips::-webkit-scrollbar{display:none}
+header>img{height:38px;flex:none}#chips{flex:1;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;min-width:0}#chips button:first-child{margin-left:auto}#chips button:last-child{margin-right:auto}#chips::-webkit-scrollbar{display:none}
 .ib{position:relative;flex:none;background:#111;color:#fff;border:0;border-radius:50%;width:44px;height:44px;display:grid;place-items:center}.ib span{position:absolute;top:-4px;right:-4px;background:#e11d48;color:#fff;border-radius:10px;font-size:11px;min-width:18px;height:18px;line-height:18px;text-align:center;font-weight:700}
 .hb{display:flex;align-items:center;gap:4px;margin-left:auto;flex:none}.ic{background:0;border:0;color:#0f1c2e;width:44px;height:44px;display:grid;place-items:center;border-radius:50%;padding:0}.mob{display:none}
 .pn{display:none;flex:0 0 100%;order:5}.pn.open{display:block}#sbar input{margin:4px 0 2px;border-radius:24px;padding:11px 16px}
@@ -19,7 +19,7 @@ main{scroll-margin-top:80px}
 .ib{width:46px;height:46px;background:#edf1f5;color:#0f1c2e;box-shadow:0 1px 6px #0003}#bar{background:#0b1b2e}}button{cursor:pointer;font:inherit}
 .b1{background:#111;color:#fff;border:0;padding:10px 18px;border-radius:8px;font-weight:600}.b2{background:#fff;border:1px solid #ccc;padding:7px 12px;border-radius:8px;margin:2px}
 .hero{text-align:center;padding:60px 20px;background:#111;color:#fff}.hero h1{margin:0 0 20px;font-size:clamp(26px,5vw,44px)}.hero a{background:#fff;color:#111;padding:12px 22px;border-radius:8px;text-decoration:none;font-weight:700}
-main{max-width:1100px;margin:auto;padding:30px 16px}#chips button{border:1px solid #ccc;background:#fff;border-radius:20px;padding:6px 14px;white-space:nowrap}#chips .on{background:#111;color:#fff;border-color:#111}
+main{max-width:1100px;margin:auto;padding:30px 16px}#chips button{border:1px solid #ccc;background:#fff;border-radius:16px;padding:4px 10px;font-size:12.5px;white-space:nowrap;flex:none}#chips .on{background:#111;color:#fff;border-color:#111}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;margin-top:14px}
 .card{background:#fff;border:1px solid #eee;border-radius:12px;overflow:hidden;cursor:pointer}.card img,.ph{width:100%;aspect-ratio:1;object-fit:cover;background:#eee;display:block}
 .card .bd{padding:12px}.pf{display:flex;justify-content:space-between;align-items:center;margin-top:4px}.plus{width:36px;height:36px;border-radius:50%;border:0;background:#111;color:#fff;font-size:22px;line-height:1}
@@ -38,6 +38,24 @@ input,select,textarea{width:100%;padding:9px;border:1px solid #ccc;border-radius
 .fm{background:#fff;padding:16px;border-radius:12px;margin:10px 0}#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#111;color:#fff;padding:10px 18px;border-radius:8px;z-index:50;display:none}
 @media(max-width:600px){main{padding:18px 10px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card .bd{padding:8px;font-size:13px}.card .bd small{font-size:11px}.pr{font-size:15px}.plus{width:30px;height:30px;font-size:18px}.hero{padding:40px 16px}}
 
+/* ===== SOPORTE ===== */
+#spf{position:fixed;right:20px;bottom:20px;z-index:6;display:flex;align-items:center;gap:8px;background:#111;color:#fff;border:0;border-radius:999px;padding:12px 20px;font-weight:700;font-size:15px;box-shadow:0 6px 18px #0004}#spf:hover{background:#000}
+@media(max-width:600px){#spf{display:none}}
+#sv{position:fixed;inset:0;background:#0b1b2e73;display:none;z-index:25;opacity:0;transition:opacity .25s}#sv.on{opacity:1}
+#sd{position:absolute;right:0;top:0;bottom:0;width:min(100%,480px);background:#fcfcff;overflow-y:auto;padding:34px 20px 40px;transform:translateX(100%);transition:transform .28s ease;box-shadow:-8px 0 30px #0003}#sv.on #sd{transform:none}
+#sd h2{margin:6px 48px 6px;text-align:center;font-size:clamp(30px,9vw,42px);font-weight:800;letter-spacing:-.02em;color:#0f1c2e;line-height:1.1}
+#sd .sub{margin:0 0 24px;text-align:center;color:#7b8794;font-weight:600;font-size:clamp(16px,4.6vw,19px)}
+#sxb{position:absolute;top:14px;right:14px;width:44px;height:44px;border-radius:50%;border:0;background:0;color:#4b5563;display:grid;place-items:center;padding:0}#sxb:focus-visible{outline:3px solid #63a4f5;outline-offset:1px}
+.wab{display:flex;align-items:center;justify-content:center;gap:10px;background:#25d366;color:#fff;text-decoration:none;font-weight:700;font-size:17px;padding:16px;border-radius:999px}
+.sbx{background:#edf1f4;border:2px solid #e2e8ed;border-radius:28px;padding:18px;margin-top:20px}.sbx h3{margin:0 0 4px;color:#0f1c2e}.sbx p{margin:0 0 10px;color:#6b7785;font-size:14px}
+#sd input{border-radius:14px;background:#fff;border:1px solid #d9e0e6;padding:12px}#sd .b1{width:100%;border-radius:999px;padding:14px}
+.tke{color:#b42318;font-weight:600}
+.tl2{list-style:none;margin:18px 0 0;padding:0}.tl2 li{position:relative;padding:3px 0 24px 44px;min-height:34px;color:#98a2ae;font-weight:600}
+.tl2 li::before{content:'';position:absolute;left:12px;top:30px;bottom:-2px;width:3px;background:#dfe5ea;border-radius:2px}.tl2 li:last-child{padding-bottom:4px}.tl2 li:last-child::before{display:none}
+.tl2 li i{position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;background:#dfe5ea;display:grid;place-items:center;color:#fff;font-style:normal;font-size:15px}
+.tl2 li.done,.tl2 li.cur{color:#0f1c2e}.tl2 li.done i{background:#111}.tl2 li.done::before{background:#111}.tl2 li.cur i{background:#fff;border:4px solid #111}
+.tl2 small{display:block;font-weight:600;color:#475467;margin-top:2px}.tl2 .gz{display:inline-block;background:#fff;border:1px solid #d9e0e6;border-radius:10px;padding:4px 10px;margin-top:6px;font-weight:700;color:#0f1c2e}
+.es,.gi{margin:0!important;width:auto!important;min-width:140px}
 /* ===== PANEL DEL CARRITO ===== */
 #cv{position:fixed;inset:0;background:#0b1b2e73;display:none;z-index:25;opacity:0;transition:opacity .25s}#cv.on{opacity:1}
 #cd{position:absolute;right:0;top:0;bottom:0;width:min(100%,480px);background:#fcfcff;overflow-y:auto;padding:34px 20px 40px;transform:translateX(100%);transition:transform .28s ease;box-shadow:-8px 0 30px #0003}#cv.on #cd{transform:none}
@@ -58,6 +76,7 @@ input,select,textarea{width:100%;padding:9px;border:1px solid #ccc;border-radius
 #ok{width:100%;padding:16px;border-radius:999px;font-size:17px;margin-top:8px}
 .ce{text-align:center;padding:30px 0;color:#6b7785}
 .pm{display:grid;grid-template-columns:auto 1fr auto;gap:6px 10px;align-items:center;padding:10px 0;border-bottom:1px solid #eee}.pm>.pi{grid-column:2/4}.pm input{margin:0}
+.ft{background:#edf1f4;border:2px solid #e2e8ed;border-radius:22px;padding:14px 16px;margin:4px 0 6px;color:#0f1c2e}.ft p{margin:0 0 8px;font-size:15px}.fb{height:8px;border-radius:99px;background:#fff;overflow:hidden}.fb i{display:block;height:100%;background:#111;border-radius:99px;transition:width .3s}.ft.ok{background:#e8f6ee;border-color:#bfe5cd}.ft.ok .fb i{background:#16a34a}
 @media(max-width:600px){#cd .g2{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){#cd,#cv{transition:none}}
 </style></head><body>
@@ -70,6 +89,9 @@ input,select,textarea{width:100%;padding:9px;border:1px solid #ccc;border-radius
 <main id="cat"><h2 id="ctt">Nuestros Productos</h2><div class="grid" id="grid"><p>Cargando…</p></div></main>
 <footer><div class="soc" id="soc"></div>© 2026 ROUMANS. Todos los derechos reservados.</footer>
 <div id="cv" onclick="if(event.target==this)closeCart()"><aside id="cd" role="dialog" aria-modal="true" aria-labelledby="ct"><button id="cxb" onclick="closeCart()" aria-label="Cerrar carrito"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button><h2 id="ct">Tu carrito</h2><p id="cs2"></p><div id="cl"></div><div id="cf"></div></aside></div>
+<button id="spf" onclick="supportUI()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/><path d="M19 20a3 3 0 0 1-3 2h-3"/></svg>Soporte</button>
+<div id="sv" onclick="if(event.target==this)closeSupport()"><aside id="sd" role="dialog" aria-modal="true" aria-labelledby="st"><button id="sxb" onclick="closeSupport()" aria-label="Cerrar soporte"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button><h2 id="st">Soporte</h2><p class="sub">¿En qué podemos ayudarte?</p><div id="swa"></div>
+<div class="sbx"><h3>Rastrear pedido</h3><p>Escribe el número de venta que aparece en tu comprobante.</p><input id="tk" placeholder="Ej. VTA-0001" onkeydown="if(event.key=='Enter')trackOrder()"><button class="b1" onclick="trackOrder()">Rastrear</button><div id="tkr"></div></div></aside></div>
 <div class="ov" id="ov"><div id="ovc"></div></div><div id="adm"></div><div id="toast"></div>
 <script>
 const API='https://script.google.com/macros/s/AKfycbwZCEVOcMgCrp7p0eCaqMANx0IG8Fcxd9KdbQLVkuEXE_V0MSHv2270GV3St81R7k1l/exec'; // ← URL de implementación de Apps Script (termina en /exec)
@@ -110,7 +132,7 @@ function pickCat(c){S.cat=c;closeP();paint();$('#cat').scrollIntoView()}
 function paint(){social();$('#ctt').textContent=S.cat=='Todas'?'Nuestros Productos':S.cat;
   $('#bar').textContent=S.cfg.anuncio||'';$('#hero').textContent=S.cfg.hero||'';
   const cats=['Todas',...new Set(S.p.map(p=>p.categoria).filter(Boolean))];
-  const ch=cats.map(c=>`<button class="${c==S.cat?'on':''}" onclick="pickCat('${e(c)}')">${e(c)}</button>`).join('');$('#chips').innerHTML=ch;$('#mnu').innerHTML=ch;
+  const ch=cats.map(c=>`<button class="${c==S.cat?'on':''}" onclick="pickCat('${e(c)}')">${e(c)}</button>`).join('');$('#chips').innerHTML=ch;$('#mnu').innerHTML=ch+'<button onclick="closeP();supportUI()">Soporte</button>';
   const q=S.q.trim().toLowerCase(),l=S.p.filter(p=>(S.cat=='Todas'||p.categoria==S.cat)&&(!q||[p.nombre,p.categoria,p.sku,p.descripcion].join(' ').toLowerCase().includes(q)));
   $('#grid').innerHTML=l.map(p=>{const i=imgs(p)[0];return`<div class="card" onclick="prod('${e(p.sku)}')">${i?`<img src="${e(i)}" loading="lazy">`:'<div class="ph"></div>'}<div class="bd"><small>${e(p.categoria)}</small><br>${e(p.nombre)}<div class="pf"><span class="pr">${m(p.precio)}</span>${+p.stock<=0?'<small>Agotado</small>':`<button class="plus" aria-label="Agregar" onclick="event.stopPropagation();quick('${e(p.sku)}')">+</button>`}</div></div></div>`}).join('')||'<p>Sin productos disponibles.</p>';
   const n=S.cart.reduce((a,x)=>a+x.qty,0);$('#cn').textContent=n;$('#cn').style.display=n?'block':'none';
@@ -147,11 +169,40 @@ function payUI(){
 function payInfo(){const x=PAYS[$('#c5').selectedIndex]||{},t=x.t=='banco'?S.cfg.banco:x.info,b=$('#pi');b.textContent=t||'';b.style.display=t?'block':'none'}
 
 /* ===== PANEL DEL CARRITO ===== */
-const FORM=`<div id="tt"></div>
+/* ===== SOPORTE Y RASTREO ===== */
+const ESTS=['Pendiente de pago','Confirmado','En tránsito','Listo para retiro','Entregado'];
+const nEst=x=>{x=String(x||'').trim();return x&&x!='Pendiente'?x:'Pendiente de pago'};
+function supportUI(){
+  const w=String(S.cfg.whatsapp||'').replace(/\D/g,'');
+  $('#swa').innerHTML=w?`<a class="wab" target="_blank" rel="noopener" href="https://wa.me/${w}?text=${encodeURIComponent('Hola ROUMANS, necesito soporte.')}"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.8 11.8 0 0 0 12 0 12 12 0 0 0 1.7 17.9L0 24l6.3-1.6A12 12 0 1 0 20.5 3.5ZM12 21.9a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.9 9.9 0 1 1 12 21.9Zm5.4-7.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.1-.3.2-.6 0a8 8 0 0 1-4-3.5c-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5l-.9-2.1c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.1 2.7 6.4 6.4 0 0 0 1.4 3.4 14.7 14.7 0 0 0 5.7 5c2.1.9 2.1.6 2.5.6a2.1 2.1 0 0 0 1.4-1 1.7 1.7 0 0 0 .1-1c0-.1-.3-.2-.6-.3Z"/></svg>Soporte por WhatsApp</a>`:'';
+  const v=$('#sv');v.style.display='block';document.body.style.overflow='hidden';
+  requestAnimationFrame(()=>{v.classList.add('on');$('#sxb').focus({preventScroll:true})});
+}
+function closeSupport(){const v=$('#sv');v.classList.remove('on');document.body.style.overflow='';setTimeout(()=>{if(!v.classList.contains('on'))v.style.display='none'},280)}
+addEventListener('keydown',ev=>{if(ev.key=='Escape'&&$('#sv').classList.contains('on'))closeSupport()});
+async function trackOrder(){
+  let id=$('#tk').value.trim().toUpperCase().replace(/\s/g,'');const out=$('#tkr');
+  if(!id)return toast('Escribe el número de venta');
+  if(/^\d+$/.test(id))id='VTA-'+id.padStart(4,'0');
+  out.innerHTML='<p style="margin-top:12px">Buscando…</p>';
+  const r=await api({action:'track',id});
+  if(!r.ok){out.innerHTML=`<p class="tke" style="margin-top:12px">${e(r.error||'No se pudo consultar el pedido')}</p>`;return}
+  const cur=Math.max(0,ESTS.indexOf(nEst(r.estado))),et=Array.isArray(r.etapas)?r.etapas:[];
+  const st=ESTS.map((n,i)=>({n,i})).filter(x=>[0,1,4].includes(x.i)||et.includes(x.n)||x.i==cur);
+  out.innerHTML=`<p style="margin:14px 0 0;color:#0f1c2e"><b>Pedido ${e(r.id)}</b>${r.fecha?' · '+e(r.fecha):''}</p><ul class="tl2">${st.map(x=>{const c=cur==4||x.i<cur?'done':x.i==cur?'cur':'todo';
+    return`<li class="${c}"><i>${c=='done'?'✓':''}</i>${e(x.n)}${x.i==2&&r.guia?`<small><span class="gz"># Guía: ${e(r.guia)}</span></small>`:''}</li>`}).join('')}</ul>`;
+}
+/* ===== ENVÍO ===== */
+const ZONES=[['Provincia de Pichincha','envio_pichincha',3.5],['Resto de Provincias','envio_resto',7],['Provincia de Galápagos','envio_galapagos',12]];
+const gmin=()=>{const v=parseFloat(S.cfg.envio_gratis);return isNaN(v)?100:v},zc=i=>{const v=parseFloat(S.cfg[ZONES[i][1]]);return isNaN(v)?ZONES[i][2]:v};
+const shipCost=()=>{if(tot().t>=gmin())return 0;const i=ZONES.findIndex(z=>z[0]==$('#c8').value);return i<0?null:zc(i)};
+function shipUI(){const sel=$('#c8'),cur=sel.value,free=tot().t>=gmin();
+  sel.innerHTML='<option value="">Selecciona tu provincia</option>'+ZONES.map((z,i)=>`<option value="${e(z[0])}">${e(z[0])} - ${free?'Gratis':m(zc(i))}</option>`).join('');sel.value=cur}
+const FORM=`<div id="fr"></div><div id="tt"></div>
   <h3>Datos del cliente</h3><label>Cédula / RUC *</label><div style="display:flex;gap:6px"><input id="c1"><button class="b2" onclick="findC()">Buscar</button></div>
   <div class="g2"><div><label>Teléfono / WhatsApp *</label><input id="c2"></div><div><label>Nombres / Razón social *</label><input id="c3"></div></div>
   <label>Correo</label><input id="c4"><label>Método de pago *</label><select id="c5" onchange="payInfo()"></select><div id="pi"></div>
-  <label>Dirección de entrega / Ciudad *</label><input id="c6"><label>Observación</label><input id="c7">
+  <label>Envío *</label><select id="c8" onchange="cartRender()"></select><label>Dirección de entrega / Ciudad *</label><input id="c6"><label>Observación</label><input id="c7">
   <button class="b1" id="ok" onclick="order()">Confirmar pedido</button>`;
 function cartUI(){
   const v=$('#cv');v.style.display='block';document.body.style.overflow='hidden';
@@ -170,8 +221,9 @@ function cartRender(){
   if(em){$('#cl').innerHTML='<div class="ce"><p>Tu carrito está vacío.</p><button class="b1" onclick="closeCart()">Seguir comprando</button></div>';return}
   $('#cl').innerHTML=S.cart.map((x,i)=>{const p=S.p.find(q=>q.sku==x.sku),im=imgs(p)[0];
     return`<div class="ci"><div class="cim">${im?`<img src="${e(im)}" alt="">`:''}</div><div class="cnm"><b>${e(p.nombre)}</b>${x.color?`<small>${e(x.color)}</small>`:''}<small>${m(p.precio)} c/u</small></div><div class="crt"><button class="ctr" onclick="rmv(${i})" aria-label="Quitar del carrito">${TR}</button><div class="cq"><button onclick="qty(${i},-1)" aria-label="Menos">−</button><span>${x.qty}</span><button onclick="qty(${i},1)" aria-label="Más">+</button></div></div></div>`}).join('');
-  const t=tot();
-  $('#tt').innerHTML=`<div><span>Subtotal (sin IVA)</span><span>${m(t.s)}</span></div><div><span>IVA ${ivaR()}% (incluido en el precio)</span><span>${m(t.i)}</span></div><div class="tl"><span>Total</span><span>${m(t.t)} USD</span></div>`;
+  const t=tot(),fal=r2(gmin()-t.t);shipUI();const E=shipCost();
+  $('#fr').innerHTML=fal>0?`<div class="ft"><p>Añade <b>${m(fal)}</b> más para obtener envío gratis</p><div class="fb"><i style="width:${Math.min(100,t.t/gmin()*100)}%"></i></div></div>`:`<div class="ft ok"><p><b>¡Envío gratis!</b> Tu pedido supera ${m(gmin())}</p><div class="fb"><i style="width:100%"></i></div></div>`;
+  $('#tt').innerHTML=`<div><span>Subtotal (sin IVA)</span><span>${m(t.s)}</span></div><div><span>IVA ${ivaR()}% (incluido en el precio)</span><span>${m(t.i)}</span></div><div><span>Envío</span><span>${fal<=0?'Gratis':E==null?'Selecciona provincia':m(E)}</span></div><div class="tl"><span>Total</span><span>${m(r2(t.t+(E||0)))} USD</span></div>`;
 }
 function qty(i,d){
   const x=S.cart[i],p=S.p.find(q=>q.sku==x.sku),o=S.cart.filter((y,j)=>j!=i&&y.sku==x.sku).reduce((a,y)=>a+y.qty,0);
@@ -183,19 +235,20 @@ async function findC(){const r=await api({action:'client',cedula:$('#c1').value.
 async function order(){
   const c={cedula:$('#c1').value.trim(),telefono:$('#c2').value.trim(),nombre:$('#c3').value.trim(),correo:$('#c4').value.trim(),direccion:$('#c6').value.trim()};
   if(!c.cedula||!c.telefono||!c.nombre||!c.direccion)return toast('Completa los campos obligatorios (*)');
+  const zona=$('#c8').value;if(!zona)return toast('Selecciona la provincia de envío');
   const pg=$('#c5').value,ob=$('#c7').value;
   $('#ok').disabled=true;$('#ok').textContent='Procesando…';
-  const r=await api({action:'order',cliente:c,items:S.cart,pago:pg,obs:ob,canal:'Web',ivaIncluido:true});
+  const r=await api({action:'order',cliente:c,items:S.cart,pago:pg,obs:ob,canal:'Web',ivaIncluido:true,zona:zona});
   if(!r.ok){toast(r.error);$('#ok').disabled=false;$('#ok').textContent='Confirmar pedido';return}
   /* el precio de la tienda ya incluye IVA: total = suma de precios; el IVA solo se desglosa */
-  const T=split(r.items.reduce((a,i)=>a+i.qty*i.precio,0));
-  if(Math.abs(T.t-(+r.total))>.01)console.warn('El total que guardó la hoja ('+r.total+') difiere del precio con IVA incluido ('+T.t+'). Actualiza el Apps Script.');
-  const txt=`Hola ROUMANS, pedido ${r.id}\nCliente: ${c.nombre} (${c.cedula})\n`+r.items.map(i=>`- ${i.qty} x ${i.nombre}${i.color?' ('+i.color+')':''}`).join('\n')+`\nTotal (IVA incluido): ${m(T.t)} USD\nPago: ${pg}\nEntrega: ${c.direccion}`;
-  LAST={id:r.id,fecha:now(),cli:c,items:r.items,pago:pg,obs:ob,sub:T.s,iva:T.i,total:T.t,inc:1};
-  S.cart=[];['c1','c2','c3','c4','c6','c7'].forEach(k=>$('#'+k).value='');
+  const T=split(r.items.reduce((a,i)=>a+i.qty*i.precio,0)),E=r.envio!==undefined?+r.envio:(shipCost()||0),GT=r2(T.t+E);
+  if(Math.abs(GT-(+r.total))>.01)console.warn('El total que guardó la hoja ('+r.total+') difiere del total del comprobante ('+GT+'). Actualiza el Apps Script.');
+  const txt=`Hola ROUMANS, pedido ${r.id}\nCliente: ${c.nombre} (${c.cedula})\n`+r.items.map(i=>`- ${i.qty} x ${i.nombre}${i.color?' ('+i.color+')':''}`).join('\n')+`\nEnvío (${zona}): ${E?m(E):'Gratis'}\nTotal (IVA incluido): ${m(GT)} USD\nPago: ${pg}\nEntrega: ${c.direccion}`;
+  LAST={id:r.id,fecha:now(),cli:c,items:r.items,pago:pg,obs:ob,sub:T.s,iva:T.i,total:GT,inc:1,envio:E,zona:zona};
+  S.cart=[];['c1','c2','c3','c4','c6','c7','c8'].forEach(k=>$('#'+k).value='');
   $('#ok').disabled=false;$('#ok').textContent='Confirmar pedido';
   load();closeCart();
-  show(`<h2>¡Pedido registrado!</h2><p>N° ${e(r.id)} · Total ${m(T.t)} USD (IVA incluido)</p>${S.cfg.whatsapp?`<a class="b1" style="display:inline-block;text-decoration:none" target="_blank" href="https://wa.me/${e(S.cfg.whatsapp)}?text=${encodeURIComponent(txt)}">Enviar comprobante por WhatsApp</a>`:''} <button class="b1" onclick="pdf(LAST)">Descargar comprobante PDF</button> <button class="b2" onclick="hide()">Seguir comprando</button>`);
+  show(`<h2>¡Pedido registrado!</h2><p>N° ${e(r.id)} · Total ${m(GT)} USD (IVA incluido y envío)</p>${S.cfg.whatsapp?`<a class="b1" style="display:inline-block;text-decoration:none" target="_blank" href="https://wa.me/${e(S.cfg.whatsapp)}?text=${encodeURIComponent(txt)}">Enviar comprobante por WhatsApp</a>`:''} <button class="b1" onclick="pdf(LAST)">Descargar comprobante PDF</button> <button class="b2" onclick="hide()">Seguir comprando</button>`);
 }
 
 
@@ -222,7 +275,8 @@ async function pdf(v){
     y+=t.length*5+1.5;d.setDrawColor(225).setLineWidth(.2).line(15,y-3,195,y-3);y+=1.5});
   if(y>235){d.addPage();y=20}y+=4;
   d.text(v.inc?'Subtotal (sin IVA)':'Subtotal',150,y,{align:'right'}).text(m(v.sub),192,y,{align:'right'});y+=6;
-  d.text('IVA ('+ivaR()+'%'+(v.inc?' incluido':'')+')',150,y,{align:'right'}).text(m(v.iva),192,y,{align:'right'});y+=8;
+  d.text('IVA ('+ivaR()+'%'+(v.inc?' incluido':'')+')',150,y,{align:'right'}).text(m(v.iva),192,y,{align:'right'});y+=6;
+  if(v.zona){d.text('Envío ('+v.zona+')',150,y,{align:'right'}).text(+v.envio?m(v.envio):'Gratis',192,y,{align:'right'});y+=6}y+=2;
   d.setFont('helvetica','bold').setFontSize(13).text('TOTAL',150,y,{align:'right'}).text(m(v.total)+' USD',192,y,{align:'right'});y+=10;
   if(v.obs){d.setFont('helvetica','normal').setFontSize(10).text(d.splitTextToSize('Observación: '+v.obs,180),15,y);y+=10}
   d.setFont('helvetica','normal').setFontSize(9).setTextColor(110);
@@ -231,7 +285,7 @@ async function pdf(v){
   d.save('Comprobante-'+v.id+'.pdf');
 }
 function pdfV(id){const v=S.A.VENTAS.find(x=>x.id==id);let it=[];try{it=JSON.parse(v.items)}catch{}
-  pdf({id:v.id,fecha:v.fecha,cli:{nombre:v.cliente,cedula:v.cedula,telefono:v.telefono,direccion:v.direccion},items:it,pago:v.pago,obs:v.obs,sub:+v.subtotal,iva:+v.iva,total:+v.total,inc:v.ivainc==='SI'?1:0})}
+  pdf({id:v.id,fecha:v.fecha,cli:{nombre:v.cliente,cedula:v.cedula,telefono:v.telefono,direccion:v.direccion},items:it,pago:v.pago,obs:v.obs,sub:+v.subtotal,iva:+v.iva,total:+v.total,inc:v.ivainc==='SI'?1:0,envio:+v.envio||0,zona:v.zona||''})}
 
 /* ===== ADMIN ===== */
 function loginUI(){show('<h2>Acceso administrador</h2><label>Clave de acceso</label><input type="password" id="k" onkeydown="if(event.key==\'Enter\')login()"><button class="b1" onclick="login()">Ingresar</button>')}
@@ -263,12 +317,13 @@ Inventario(){const A=S.A;
   <h3>Kardex</h3>${tbl(['Fecha','Producto','Tipo','Cant.','Anterior → Nuevo','Motivo'],[...A.KARDEX].reverse().slice(0,200).map(k=>[e(k.fecha),e(k.producto),e(k.tipo),k.cantidad,k.anterior+' → '+k.nuevo,e(k.motivo)]))}`},
 Ventas(){const A=S.A;
   return`<div class="fm"><h3>Venta directa (mostrador)</h3><div class="g2"><div><label>Cédula / RUC</label><input id="v1"></div><div><label>Cliente</label><input id="v2" value="Consumidor final"></div><div><label>Producto</label><select id="v3">${A.PRODUCTOS.map(p=>`<option value="${e(p.sku)}">${e(p.nombre)} (${p.stock})`).join('')}</select></div><div><label>Cantidad</label><input type="number" id="v4" value="1"></div><div><label>Pago</label><select id="v5"><option>Efectivo<option>Transferencia<option>Tarjeta</select></div></div><button class="b1" onclick="manual()">Emitir venta y descontar stock</button></div>
-  ${tbl(['N°','Fecha','Cliente','Artículos','Pago','Total','Estado','Comprobante'],[...A.VENTAS].reverse().map(v=>{let it='';try{it=JSON.parse(v.items).map(i=>i.qty+'× '+i.nombre+(i.color?' ('+i.color+')':'')).join(', ')}catch{}return[e(v.id),e(v.fecha),e(v.cliente),e(it),e(v.pago),m(v.total),`<button class="b2" onclick="est('${e(v.id)}')">${e(v.estado)}</button>`,`<button class="b2" onclick="pdfV('${e(v.id)}')">PDF</button>`]}))}`},
+  ${tbl(['N°','Fecha','Cliente','Artículos','Pago','Total','Estado','# Guía','Comprobante'],[...A.VENTAS].reverse().map(v=>{let it='';try{it=JSON.parse(v.items).map(i=>i.qty+'× '+i.nombre+(i.color?' ('+i.color+')':'')).join(', ')}catch{}return[e(v.id),e(v.fecha),e(v.cliente),e(it),e(v.pago),m(v.total),`<select class="es" onchange="setEst('${e(v.id)}',this.value)">${ESTS.map(x=>`<option ${x==nEst(v.estado)?'selected':''}>${x}</option>`).join('')}</select>`,`<input class="gi" value="${e(v.guia)}" placeholder="# Guía" onchange="setGuia('${e(v.id)}',this.value)">`,`<button class="b2" onclick="pdfV('${e(v.id)}')">PDF</button>`]}))}`},
 Clientes(){
   if(!F)F={cedula:'',nombre:'',telefono:'',correo:'',direccion:''};
   return`<div class="fm"><h3>Crear / editar cliente</h3><div class="g2">${inp('cedula','Cédula / RUC *')}${inp('nombre','Nombres / Razón social *')}${inp('telefono','Teléfono *')}${inp('correo','Correo')}${inp('direccion','Dirección')}</div><button class="b1" onclick="saveC()">Guardar cliente</button></div>`+tbl(['Cédula','Nombres','Teléfono','Correo','Dirección',''],S.A.CLIENTES.map((c,i)=>[e(c.cedula),e(c.nombre),e(c.telefono),e(c.correo),e(c.direccion),`<button class="b2" onclick="F={...S.A.CLIENTES[${i}]};admin()">Editar</button><button class="b2" onclick="delC(${i})">Borrar</button>`]))},
 Config(){const c={...S.A.config,...(CD||{})};if(!PM)PM=payList(S.A.config);
-  return`<div class="fm"><h3>Configuración de la tienda</h3><label>Impuesto IVA (%) — ya incluido en los precios de venta</label><input id="f1" type="number" value="${e(c.iva)}"><label>WhatsApp de la tienda — icono público y pedidos (con código de país, ej. 593999999999)</label><input id="f2" value="${e(c.whatsapp)}"><label>Barra de anuncio</label><input id="f3" value="${e(c.anuncio)}"><label>Título principal</label><input id="f4" value="${e(c.hero)}">
+  return`<div class="fm"><h3>Configuración de la tienda</h3><label>Impuesto IVA (%) — ya incluido en los precios de venta</label><input id="f1" type="number" value="${e(c.iva)}"><label>WhatsApp de la tienda — soporte, icono público y pedidos (con código de país, ej. 593999999999)</label><input id="f2" value="${e(c.whatsapp)}"><label>Barra de anuncio</label><input id="f3" value="${e(c.anuncio)}"><label>Título principal</label><input id="f4" value="${e(c.hero)}">
+  <h4>Costos de envío</h4><div class="g2"><div><label>Provincia de Pichincha ($)</label><input id="f7" type="number" step="0.01" value="${e(String(c.envio_pichincha??3.5))}"></div><div><label>Resto de Provincias ($)</label><input id="f8" type="number" step="0.01" value="${e(String(c.envio_resto??7))}"></div><div><label>Provincia de Galápagos ($)</label><input id="f9" type="number" step="0.01" value="${e(String(c.envio_galapagos??12))}"></div><div><label>Envío gratis desde ($)</label><input id="f10" type="number" step="0.01" value="${e(String(c.envio_gratis??100))}"></div></div>
   <h4>Métodos de pago que ve el cliente</h4><small>Marca los que quieres ofrecer en el carrito. Lo que escribas en “Instrucciones” se muestra al cliente al elegir ese método.</small>
   ${PM.map((x,i)=>`<div class="pm"><input type="checkbox" style="width:auto" ${x.on?'checked':''} onchange="PM[${i}].on=this.checked?1:0" aria-label="Mostrar en la tienda"><input type="text" value="${e(x.n)}" oninput="PM[${i}].n=this.value" placeholder="Nombre del método"><button class="b2" onclick="pmDel(${i})" aria-label="Quitar">×</button><div class="pi">${x.t=='banco'?'<small>Muestra los “Datos bancarios” de abajo.</small>':`<input type="text" value="${e(x.info)}" oninput="PM[${i}].info=this.value" placeholder="Instrucciones (opcional)">`}</div></div>`).join('')}
   <button class="b2" onclick="pmAdd()">+ Añadir método de pago</button>
@@ -296,19 +351,22 @@ async function manual(){
   const r=await api({action:'order',canal:'Mostrador',pago:$('#v5').value,cliente:{cedula:$('#v1').value.trim(),nombre:$('#v2').value},items:[{sku:$('#v3').value,qty:+$('#v4').value}]});
   if(!r.ok)return toast(r.error);toast('Venta '+r.id+' registrada');await adminLoad();admin();load()
 }
-async function est(id){const l=S.A.VENTAS,v=l.find(x=>x.id==id);v.estado=v.estado=='Pendiente'?'Entregado':'Pendiente';if(await saveTable('VENTAS',l))admin()}
+async function setEst(id,val){const l=S.A.VENTAS,v=l.find(x=>x.id==id),i=ESTS.indexOf(val);let et=[];try{et=JSON.parse(v.etapas||'[]')}catch{}
+  et=et.filter(n=>ESTS.indexOf(n)<=i);if((i==2||i==3)&&!et.includes(val))et.push(val);
+  v.estado=val;v.etapas=JSON.stringify(et);if(await saveTable('VENTAS',l))admin()}
+async function setGuia(id,val){const l=S.A.VENTAS,v=l.find(x=>x.id==id);v.guia=val.trim();if(await saveTable('VENTAS',l))toast('Guía guardada')}
 async function saveC(){
   if(!F.cedula||!F.nombre||!F.telefono)return toast('Completa los campos obligatorios');
   const l=S.A.CLIENTES.filter(c=>c.cedula!=F.cedula);l.push(F);if(await saveTable('CLIENTES',l)){S.A.CLIENTES=l;F=null;admin()}
 }
 async function delC(i){if(!confirm('¿Borrar cliente?'))return;const l=S.A.CLIENTES.filter((_,j)=>j!=i);if(await saveTable('CLIENTES',l)){S.A.CLIENTES=l;admin()}}
-const draftCfg=()=>{if($('#f1'))CD={iva:$('#f1').value,whatsapp:$('#f2').value,anuncio:$('#f3').value,hero:$('#f4').value,banco:$('#f5').value}};
+const draftCfg=()=>{if($('#f1'))CD={iva:$('#f1').value,whatsapp:$('#f2').value,anuncio:$('#f3').value,hero:$('#f4').value,banco:$('#f5').value,envio_pichincha:$('#f7').value,envio_resto:$('#f8').value,envio_galapagos:$('#f9').value,envio_gratis:$('#f10').value}};
 function pmAdd(){draftCfg();PM.push({n:'',on:1,t:'',info:''});admin()}
 function pmDel(i){draftCfg();PM.splice(i,1);admin()}
 async function saveCfg(){
   const pays=(PM||payList(S.A.config)).filter(x=>x.n.trim());
   if(!pays.some(x=>x.on))return toast('Activa al menos un método de pago');
-  const c={...S.A.config,iva:$('#f1').value,whatsapp:$('#f2').value.replace(/\D/g,''),anuncio:$('#f3').value,hero:$('#f4').value,banco:$('#f5').value,pagos:JSON.stringify(pays)};
+  const c={...S.A.config,iva:$('#f1').value,whatsapp:$('#f2').value.replace(/\D/g,''),anuncio:$('#f3').value,hero:$('#f4').value,banco:$('#f5').value,envio_pichincha:$('#f7').value,envio_resto:$('#f8').value,envio_galapagos:$('#f9').value,envio_gratis:$('#f10').value,pagos:JSON.stringify(pays)};
   if(await saveTable('CONFIGURACION',Object.keys(c).map(k=>({clave:k,valor:c[k]})))){
     S.A.config=c;PM=null;CD=null;const nk=$('#f6').value;if(nk){const r=await api({action:'setKey',key:S.key,newKey:nk});if(r.ok)S.key=nk}load();admin()}
 }

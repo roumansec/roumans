@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="es"><head>
+<html lang="es-EC"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Roumans</title>
+<meta name="description" content="ROUMANS: tienda en línea con envíos a todo el Ecuador. Consulta nuestros productos, haz tu pedido y da seguimiento a tu compra.">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -21,12 +22,12 @@ main{scroll-margin-top:80px}
 .hero{text-align:center;padding:60px 20px;background:#111;color:#fff}.hero h1{margin:0;font-size:clamp(26px,5vw,44px)}
 main{max-width:1100px;margin:auto;padding:30px 16px}#chips button{border:1px solid #ccc;background:#fff;border-radius:16px;padding:4px 10px;font-size:12.5px;white-space:nowrap;flex:none}#chips .on{background:#111;color:#fff;border-color:#111}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;margin-top:14px}
-.card{background:#fff;border:1px solid #eee;border-radius:12px;overflow:hidden;cursor:pointer}.card img,.ph{width:100%;aspect-ratio:1;object-fit:cover;background:#eee;display:block}
-.card .bd{padding:12px}.pf{display:flex;justify-content:space-between;align-items:center;margin-top:4px}.plus{width:36px;height:36px;border-radius:50%;border:0;background:#111;color:#fff;font-size:22px;line-height:1}
+.card{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid #eee;border-radius:12px;overflow:hidden;cursor:pointer}.card img,.ph{width:100%;aspect-ratio:1;object-fit:cover;background:#eee;display:block;flex:none}
+.card .bd{padding:12px;flex:1;display:flex;flex-direction:column}.nm{display:block;background:0;border:0;padding:0;margin:2px 0 6px;text-align:left;font:inherit;color:inherit}.nm::after{content:"";position:absolute;inset:0}.nm:focus-visible{outline:0}.nm:focus-visible::after{outline:3px solid #2E6CD3;outline-offset:-3px;border-radius:12px}.pf{display:flex;justify-content:space-between;align-items:center;margin-top:auto;min-height:36px;padding:4px 44px 0 0}.plus{position:absolute;right:12px;bottom:12px;z-index:2;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;border:0;background:#111;color:#fff;font-size:22px;line-height:1;padding:0}
 .sw{display:inline-flex;align-items:center;gap:6px;border:1px solid #ccc;background:#fff;border-radius:20px;padding:5px 12px;font-size:13px;margin:0 6px 6px 0}.sw i{width:16px;height:16px;border-radius:50%;border:1px solid #0003;display:inline-block}.sw.on{border-color:#111;box-shadow:0 0 0 2px #111}
-.soc{display:flex;gap:12px;justify-content:center;margin:12px 0}.soc a{width:42px;height:42px;border-radius:50%;background:#111;color:#fff;display:grid;place-items:center}.soc a.wa{background:#25d366}.soc svg{width:22px;height:22px}.card small{color:#777}.pr{font-weight:700;font-size:18px}
-footer{text-align:center;padding:30px;color:#777;font-size:13px}footer a{color:#555;margin:0 6px}
-.ov{position:fixed;inset:0;background:#0008;display:none;z-index:20;overflow:auto}.ov>div{background:#fff;max-width:640px;margin:30px auto;padding:22px;border-radius:14px;position:relative}
+.soc{display:flex;gap:12px;justify-content:center;margin:12px 0}.soc a{width:42px;height:42px;border-radius:50%;background:#111;color:#fff;display:grid;place-items:center}.soc a.wa{background:#0b7a3e}.soc svg{width:22px;height:22px}.card small{color:#5f6368}.pr{font-weight:700;font-size:18px}
+footer{text-align:center;padding:30px;color:#555;font-size:13px}footer a{color:#333;margin:0 6px}
+.ov{position:fixed;inset:0;background:#0008;display:none;z-index:35;overflow:auto}.ov>div{background:#fff;max-width:640px;margin:30px auto;padding:22px;border-radius:14px;position:relative}
 .x{position:absolute;right:12px;top:8px;border:0;background:0;font-size:26px}
 input,select,textarea{width:100%;padding:9px;border:1px solid #ccc;border-radius:8px;font:inherit;margin:3px 0 8px}label{font-size:13px;color:#555}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}.th{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}.th img{width:64px;height:64px;object-fit:cover;border-radius:8px;border:2px solid #ddd;cursor:pointer}
@@ -36,7 +37,7 @@ input,select,textarea{width:100%;padding:9px;border:1px solid #ccc;border-radius
 .kp{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:20px}.kp div{background:#fff;padding:16px;border-radius:12px}.kp b{font-size:26px;display:block}
 .tw{overflow-x:auto;background:#fff;border-radius:10px;margin:10px 0}table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:8px 10px;text-align:left;border-bottom:1px solid #eee;white-space:nowrap}th{background:#fafafa}
 .fm{background:#fff;padding:16px;border-radius:12px;margin:10px 0}#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#111;color:#fff;padding:10px 18px;border-radius:8px;z-index:50;display:none}
-@media(max-width:600px){main{padding:18px 10px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card .bd{padding:8px;font-size:13px}.card .bd small{font-size:11px}.pr{font-size:15px}.plus{width:30px;height:30px;font-size:18px}.hero{padding:40px 16px}}
+@media(max-width:600px){main{padding:18px 10px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card .bd{padding:8px;font-size:13px}.card .bd small{font-size:11px}.pr{font-size:15px}.plus{width:30px;height:30px;font-size:18px;right:8px;bottom:8px}.pf{min-height:30px;padding-right:38px}.hero{padding:40px 16px}}
 
 /* ===== SOPORTE ===== */
 #spf{position:fixed;right:20px;bottom:20px;z-index:6;display:flex;align-items:center;gap:8px;background:#111;color:#fff;border:0;border-radius:999px;padding:12px 20px;font-weight:700;font-size:15px;box-shadow:0 6px 18px #0004}#spf:hover{background:#000}
@@ -44,29 +45,29 @@ input,select,textarea{width:100%;padding:9px;border:1px solid #ccc;border-radius
 #sv{position:fixed;inset:0;background:#0b1b2e73;display:none;z-index:25;opacity:0;transition:opacity .25s}#sv.on{opacity:1}
 #sd{position:absolute;right:0;top:0;bottom:0;width:min(100%,480px);background:#fcfcff;overflow-y:auto;padding:34px 20px 40px;transform:translateX(100%);transition:transform .28s ease;box-shadow:-8px 0 30px #0003}#sv.on #sd{transform:none}
 #sd h2{margin:6px 48px 6px;text-align:center;font-size:clamp(30px,9vw,42px);font-weight:800;letter-spacing:-.02em;color:#0f1c2e;line-height:1.1}
-#sd .sub{margin:0 0 24px;text-align:center;color:#7b8794;font-weight:600;font-size:clamp(16px,4.6vw,19px)}
+#sd .sub{margin:0 0 24px;text-align:center;color:#5b6773;font-weight:600;font-size:clamp(16px,4.6vw,19px)}
 #sxb{position:absolute;top:14px;right:14px;width:44px;height:44px;border-radius:50%;border:0;background:0;color:#4b5563;display:grid;place-items:center;padding:0}#sxb:focus-visible{outline:3px solid #63a4f5;outline-offset:1px}
-.wab{display:flex;align-items:center;justify-content:center;gap:10px;background:#25d366;color:#fff;text-decoration:none;font-weight:700;font-size:17px;padding:16px;border-radius:999px}
-.sbx{background:#edf1f4;border:2px solid #e2e8ed;border-radius:28px;padding:18px;margin-top:20px}.sbx h3{margin:0 0 4px;color:#0f1c2e}.sbx p{margin:0 0 10px;color:#6b7785;font-size:14px}
+.wab{display:flex;align-items:center;justify-content:center;gap:10px;background:#0b7a3e;color:#fff;text-decoration:none;font-weight:700;font-size:17px;padding:16px;border-radius:999px}
+.sbx{background:#edf1f4;border:2px solid #e2e8ed;border-radius:28px;padding:18px;margin-top:20px}.sbx h3{margin:0 0 4px;color:#0f1c2e}.sbx p{margin:0 0 10px;color:#4b5563;font-size:14px}
 #sd input{border-radius:14px;background:#fff;border:1px solid #d9e0e6;padding:12px}#sd .b1{width:100%;border-radius:999px;padding:14px}
 .tke{color:#b42318;font-weight:600}
-.tl2{list-style:none;margin:18px 0 0;padding:0}.tl2 li{position:relative;padding:3px 0 24px 44px;min-height:34px;color:#98a2ae;font-weight:600}
-.tl2 li::before{content:'';position:absolute;left:12px;top:30px;bottom:-2px;width:3px;background:#dfe5ea;border-radius:2px}.tl2 li:last-child{padding-bottom:4px}.tl2 li:last-child::before{display:none}
+.tl2{list-style:none;margin:18px 0 0;padding:0}.tl2 li{position:relative;padding:3px 0 24px 44px;min-height:34px;color:#667085;font-weight:600}
+.tl2 li::before{content:'';position:absolute;left:12px;top:30px;bottom:-2px;width:3px;background:#2E6CD3;border-radius:2px}.tl2 li:last-child{padding-bottom:4px}.tl2 li:last-child::before{display:none}
 .tl2 li i{position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;background:#dfe5ea;display:grid;place-items:center;color:#fff;font-style:normal;font-size:15px}
-.tl2 li.done,.tl2 li.cur{color:#0f1c2e}.tl2 li.done i{background:#111}.tl2 li.done::before{background:#111}.tl2 li.cur i{background:#fff;border:4px solid #111}
+.tl2 li.done,.tl2 li.cur{color:#0f1c2e}.tl2 li.done i{background:#2E6CD3}.tl2 li.cur i{background:#fff;border:4px solid #2E6CD3}
 .tl2 small{display:block;font-weight:600;color:#475467;margin-top:2px}.tl2 .gz{display:inline-block;background:#fff;border:1px solid #d9e0e6;border-radius:10px;padding:4px 10px;margin-top:6px;font-weight:700;color:#0f1c2e}
 .es,.gi{margin:0!important;width:auto!important;min-width:140px}
 /* ===== PANEL DEL CARRITO ===== */
 #cv{position:fixed;inset:0;background:#0b1b2e73;display:none;z-index:25;opacity:0;transition:opacity .25s}#cv.on{opacity:1}
 #cd{position:absolute;right:0;top:0;bottom:0;width:min(100%,480px);background:#fcfcff;overflow-y:auto;padding:34px 20px 40px;transform:translateX(100%);transition:transform .28s ease;box-shadow:-8px 0 30px #0003}#cv.on #cd{transform:none}
 #cd h2{margin:6px 48px 6px;text-align:center;font-size:clamp(30px,9vw,42px);font-weight:800;letter-spacing:-.02em;color:#0f1c2e;line-height:1.1}
-#cs2{margin:0 0 28px;text-align:center;color:#7b8794;font-weight:600;font-size:clamp(16px,4.6vw,20px)}
+#cs2{margin:0 0 28px;text-align:center;color:#5b6773;font-weight:600;font-size:clamp(16px,4.6vw,20px)}
 #cxb{position:absolute;top:14px;right:14px;width:44px;height:44px;border-radius:50%;border:0;background:0;color:#4b5563;display:grid;place-items:center;padding:0}#cxb:focus-visible{outline:3px solid #63a4f5;outline-offset:1px}
 .ci{display:flex;align-items:stretch;gap:14px;background:#edf1f4;border:2px solid #e2e8ed;border-radius:32px;padding:16px;margin-bottom:16px}
 .cim{flex:none;width:clamp(76px,23vw,112px);aspect-ratio:1;border-radius:26px;background:#fff;overflow:hidden}.cim img{width:100%;height:100%;object-fit:cover;display:block}
-.cnm{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;padding-top:4px;color:#0f1c2e}.cnm b{font-size:16px;line-height:1.25;overflow-wrap:anywhere}.cnm small{color:#6b7785;font-size:13px}
+.cnm{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;padding-top:4px;color:#0f1c2e}.cnm b{font-size:16px;line-height:1.25;overflow-wrap:anywhere}.cnm small{color:#4b5563;font-size:13px}
 .crt{flex:none;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end;gap:10px}
-.ctr{background:0;border:0;color:#7b8794;width:40px;height:40px;display:grid;place-items:center;padding:0;border-radius:50%}.ctr:hover{color:#e11d48}
+.ctr{background:0;border:0;color:#5b6773;width:40px;height:40px;display:grid;place-items:center;padding:0;border-radius:50%}.ctr:hover{color:#e11d48}
 .cq{display:flex;align-items:center;background:#fff;border-radius:999px;padding:4px}.cq button{width:34px;height:34px;border:0;background:0;border-radius:50%;font-size:24px;color:#0f1c2e;padding:0;line-height:1;display:grid;place-items:center}.cq span{min-width:26px;text-align:center;font-weight:700;font-size:17px;color:#0f1c2e}
 .ctr:focus-visible,.cq button:focus-visible{outline:3px solid #63a4f5}
 #tt{margin:22px 4px 8px;color:#475467}#tt div{display:flex;justify-content:space-between;padding:4px 0;font-size:15px}#tt .tl{font-size:22px;font-weight:800;color:#0f1c2e;border-top:1px solid #e2e8ed;margin-top:6px;padding-top:12px}
@@ -74,17 +75,17 @@ input,select,textarea{width:100%;padding:9px;border:1px solid #ccc;border-radius
 #cd input,#cd select,#cd textarea{border-radius:14px;background:#fff;border:1px solid #d9e0e6;padding:12px}
 #pi{background:#edf1f4;padding:10px 12px;border-radius:14px;white-space:pre-wrap;font-size:14px;margin:0 0 8px;color:#334155}
 #ok{width:100%;padding:16px;border-radius:999px;font-size:17px;margin-top:8px}
-.ce{text-align:center;padding:30px 0;color:#6b7785}
+.ce{text-align:center;padding:30px 0;color:#4b5563}
 .pm{display:grid;grid-template-columns:auto 1fr auto;gap:6px 10px;align-items:center;padding:10px 0;border-bottom:1px solid #eee}.pm>.pi{grid-column:2/4}.pm input{margin:0}
 .ft{background:#edf1f4;border:2px solid #e2e8ed;border-radius:22px;padding:14px 16px;margin:4px 0 6px;color:#0f1c2e}.ft p{margin:0 0 8px;font-size:15px}.fb{height:8px;border-radius:99px;background:#fff;overflow:hidden}.fb i{display:block;height:100%;background:#111;border-radius:99px;transition:width .3s}.ft.ok{background:#e8f6ee;border-color:#bfe5cd}.ft.ok .fb i{background:#16a34a}
 @media(max-width:600px){#cd .g2{grid-template-columns:1fr}}
-@media(prefers-reduced-motion:reduce){#cd,#cv{transition:none}}
+@media(prefers-reduced-motion:reduce){#cd,#cv,#sd,#sv{transition:none}}
 
 /* ===== ENVÍO (carrito) ===== */
 .shp{margin:26px 0 8px;color:#111}
 #cf .shp h3{margin:0 0 14px;font-size:22px;font-weight:800;letter-spacing:.02em;text-transform:uppercase}
 .sg{display:flex;gap:0;border:1px solid #ddd;border-radius:16px;padding:2px;box-shadow:0 2px 5px #0002;background:#fff;margin-bottom:22px}
-.sg button{flex:1;border:0;background:0;padding:10px 8px;line-height:1.25;font-size:14px;color:#777;border-radius:14px}
+.sg button{flex:1;border:0;background:0;padding:10px 8px;line-height:1.25;font-size:14px;color:#595959;border-radius:14px}
 .sg button small{display:block;font-size:14px}
 .sg button.on{background:#1a1a1a;color:#fff;font-size:19px}
 #cf .shp label{display:block;margin:16px 0 6px;font-size:15px;text-transform:uppercase;color:#111}
@@ -92,11 +93,11 @@ input,select,textarea{width:100%;padding:9px;border:1px solid #ccc;border-radius
 #cd .shp select,#cd .shp #sCity{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='22' viewBox='0 0 16 22' fill='none' stroke='%23111' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 8l5-5 5 5M3 14l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:44px}
 #cd .shp .bad{border-color:#d92d20}
 .shp .er{display:none;color:#d92d20;font-size:16px;margin-top:6px}
-.shp .hnt{color:#9aa0a6;text-transform:uppercase;font-size:16px;margin:14px 0 0}
+.shp .hnt{color:#5f6368;text-transform:uppercase;font-size:16px;margin:14px 0 0}
 .cb{position:relative}
 .cbl{display:none;position:absolute;left:0;right:0;top:100%;z-index:5;background:#fff;border:1px solid #ddd;max-height:250px;overflow:auto;box-shadow:0 8px 20px #0003}
 .cbl button{display:flex;justify-content:space-between;gap:10px;width:100%;border:0;border-bottom:1px solid #f0f0f0;background:#fff;padding:13px 16px;text-align:left;font-size:16px;color:#111}
-.cbl button:hover{background:#f3f4f6}.cbl small{color:#888;flex:none}.cbl p{margin:0;padding:13px 16px;color:#888}
+.cbl button:hover{background:#f3f4f6}.cbl small{color:#5f6368;flex:none}.cbl p{margin:0;padding:13px 16px;color:#5f6368}
 .rt{background:#edf1f4;border:2px solid #e2e8ed;border-radius:18px;padding:16px;font-size:15px;line-height:1.5}
 .rt a{color:#0f1c2e;font-weight:700}
 /* ===== PRODUCTO ===== */
@@ -105,20 +106,39 @@ input,select,textarea{width:100%;padding:9px;border:1px solid #ccc;border-radius
 .pinf{margin-top:26px;border-top:1px solid #eee;padding-top:18px}.pinf h3{margin:0 0 12px}
 .pit{display:grid;grid-template-columns:minmax(110px,32%) 1fr;gap:6px 18px;align-items:start;background:#f7f7f8;border-radius:12px;padding:12px 16px;margin-bottom:10px}.pit h4{margin:0}.pit .desc{margin:0}
 @media(min-width:800px){#ovc.wide{max-width:1000px}.pg{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start}}
+
+/* ===== ACCESIBILIDAD Y LEGAL ===== */
+:focus-visible{outline:3px solid #2E6CD3;outline-offset:2px}
+.skip{position:absolute;left:8px;top:-70px;background:#fff;color:#111;padding:10px 14px;border-radius:8px;z-index:60;font-weight:700;box-shadow:0 2px 8px #0004}.skip:focus{top:8px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+input[type=checkbox]{width:auto;margin:0 8px 0 0;accent-color:#111}
+.lbl{font-size:13px;color:#555}.mn{font-size:13px;color:#555;margin:2px 4px 10px}
+.th .tbn{border:0;background:0;padding:0;border-radius:8px;line-height:0}
+.lk{background:0;border:0;padding:0;color:#2E6CD3;text-decoration:underline;font:inherit}
+.lg{display:flex;flex-wrap:wrap;justify-content:center;gap:0 4px;margin:6px 0 10px}.lg button{background:0;border:0;color:#333;text-decoration:underline;padding:8px 6px;font-size:13px}
+.cons{display:flex;align-items:flex-start;margin:14px 4px 4px}.cons input{margin-top:3px;flex:none;width:18px;height:18px}.cons label{margin:0;font-size:14px;line-height:1.45;color:#333}
+.cons+.er{display:none;color:#d92d20;font-size:14px;margin:0 4px 6px}
+.x{width:44px;height:44px;line-height:1;right:6px;top:4px}
+.lgl h2{margin:0 36px 2px 0}.lgl small{color:#5f6368}.lgl h3{font-size:16px;margin:20px 0 4px;color:#0f1c2e}.lgl p,.lgl li{font-size:14.5px;line-height:1.6;color:#333;margin:6px 0}.lgl ul{padding-left:20px;margin:6px 0}.lgl a{color:#2E6CD3}
+.lgl .row label{font-size:15px;color:#111}.lgl .row{padding:12px 0}
+.lgl table{font-size:13.5px}.lgl td,.lgl th{white-space:normal;vertical-align:top}
+#ckb{position:fixed;left:12px;right:12px;bottom:12px;z-index:22;display:none;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;background:#fff;border:1px solid #d0d5dd;border-radius:14px;padding:14px 16px;box-shadow:0 8px 30px #0003;max-width:900px;margin:0 auto}
+#ckb p{margin:0;flex:1 1 320px;font-size:14px;line-height:1.5;color:#222}#ckb div{display:flex;gap:8px;flex-wrap:wrap}#ckb .b1,#ckb .b2{padding:10px 14px;margin:0}
 </style></head><body>
+<a class="skip" href="#cat" onclick="setTimeout(()=>$('#cat').focus(),0)">Saltar al contenido</a>
 <div id="bar"></div>
-<header><img src="logo.png" alt="ROUMANS"><nav id="chips"></nav>
+<header><img src="logo.png" alt="ROUMANS"><nav id="chips" aria-label="Categorías"></nav>
 <div class="hb"><button class="ic" onclick="togP('sbar')" aria-label="Buscar"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></button><button class="ib" onclick="cartUI()" aria-label="Bolsa de compras"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="14" rx="3"/><path d="M8.5 7V6a3.5 3.5 0 0 1 7 0v1"/><path d="M9 12a3 3 0 0 0 6 0"/></svg><span id="cn" style="display:none">0</span></button><button class="ic mob" onclick="togP('mnu')" aria-label="Categorías"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button></div>
-<div class="pn" id="sbar"><input id="q0" type="search" placeholder="Buscar productos…" oninput="S.q=this.value;paint();if(this.value.length==1)$('#cat').scrollIntoView()"></div>
+<div class="pn" id="sbar"><input id="q0" type="search" aria-label="Buscar productos" placeholder="Buscar productos…" oninput="S.q=this.value;paint();if(this.value.length==1)$('#cat').scrollIntoView()"></div>
 <div class="pn" id="mnu"></div></header>
 <section class="hero"><h1 id="hero"></h1></section>
-<main id="cat"><h2 id="ctt">Nuestros Productos</h2><div class="grid" id="grid"><p>Cargando…</p></div></main>
-<footer><div class="soc" id="soc"></div>© 2026 ROUMANS. Todos los derechos reservados.</footer>
+<main id="cat" tabindex="-1"><h2 id="ctt">Nuestros Productos</h2><div class="grid" id="grid"><p>Cargando…</p></div></main>
+<footer><div class="soc" id="soc"></div><nav class="lg" aria-label="Información legal"><button onclick="legal('priv')">Política de privacidad</button><button onclick="legal('terms')">Términos y condiciones</button><button onclick="legal('cook')">Política de cookies</button><button onclick="ckCfg()">Configurar cookies</button><button onclick="legal('refund')">Devoluciones y reembolsos</button></nav>© 2026 ROUMANS. Todos los derechos reservados.<br><small>Precios en USD con IVA incluido.</small></footer>
 <div id="cv" onclick="if(event.target==this)closeCart()"><aside id="cd" role="dialog" aria-modal="true" aria-labelledby="ct"><button id="cxb" onclick="closeCart()" aria-label="Cerrar carrito"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button><h2 id="ct">Tu carrito</h2><p id="cs2"></p><div id="cl"></div><div id="cf"></div></aside></div>
 <button id="spf" onclick="supportUI()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/><path d="M19 20a3 3 0 0 1-3 2h-3"/></svg>Soporte</button>
 <div id="sv" onclick="if(event.target==this)closeSupport()"><aside id="sd" role="dialog" aria-modal="true" aria-labelledby="st"><button id="sxb" onclick="closeSupport()" aria-label="Cerrar soporte"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button><h2 id="st">Soporte</h2><p class="sub">¿En qué podemos ayudarte?</p><div id="swa"></div>
-<div class="sbx"><h3>Rastrear pedido</h3><p>Escribe el número de venta que aparece en tu comprobante.</p><input id="tk" placeholder="Ej. VTA-0001" onkeydown="if(event.key=='Enter')trackOrder()"><button class="b1" onclick="trackOrder()">Rastrear</button><div id="tkr"></div></div></aside></div>
-<div class="ov" id="ov"><div id="ovc"></div></div><div id="adm"></div><div id="toast"></div>
+<div class="sbx"><h3>Seguimiento de pedido</h3><p>Para proteger tu información, ingresa tu cédula / RUC y el número de pedido que aparece en tu comprobante.</p><label for="tkc">Cédula / RUC</label><input id="tkc" inputmode="numeric" autocomplete="off" placeholder="Ej. 1712345678" aria-required="true" onkeydown="if(event.key=='Enter')trackOrder()"><label for="tk">Número de pedido</label><input id="tk" autocomplete="off" placeholder="Ej. VTA-0001 (completo, con letras y guion)" aria-required="true" onkeydown="if(event.key=='Enter')trackOrder()"><p class="mn">Usamos estos datos solo para validar que el pedido es tuyo.</p><button class="b1" onclick="trackOrder()">Dar seguimiento</button><div id="tkr" aria-live="polite"></div></div></aside></div>
+<div class="ov" id="ov"><div id="ovc" role="dialog" aria-modal="true" tabindex="-1"></div></div><div id="adm"></div><div id="toast" role="status" aria-live="polite"></div>
 <script>
 const API='https://script.google.com/macros/s/AKfycbwZCEVOcMgCrp7p0eCaqMANx0IG8Fcxd9KdbQLVkuEXE_V0MSHv2270GV3St81R7k1l/exec'; // ← URL de implementación de Apps Script (termina en /exec)
 const $=s=>document.querySelector(s),e=s=>String(s??'').replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';'),m=n=>'$'+(+n||0).toFixed(2);
@@ -132,7 +152,14 @@ const api=async o=>{
 const cols=p=>{try{return Array.isArray(p.colores)?p.colores:JSON.parse(p.colores||'[]')}catch{return[]}};let CP=null,SEL='';
 const imgs=p=>{try{return Array.isArray(p.imagenes)?p.imagenes:JSON.parse(p.imagenes||'[]')}catch{return[]}};
 const toast=t=>{const x=$('#toast');x.textContent=t;x.style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>x.style.display='none',2800)};
-const show=(h,w)=>{$('#ovc').className=w?'wide':'';$('#ovc').innerHTML='<button class="x" onclick="hide()">×</button>'+h;$('#ov').style.display='block'},hide=()=>$('#ov').style.display='none';
+let LASTF=null;
+const show=(h,w)=>{if($('#ov').style.display!='block')LASTF=document.activeElement;const c=$('#ovc');c.className=w?'wide':'';c.innerHTML='<button class="x" onclick="hide()" aria-label="Cerrar">×</button>'+h;
+  const t=c.querySelector('h2');if(t){t.id='ovt';c.setAttribute('aria-labelledby','ovt')}else c.removeAttribute('aria-labelledby');
+  $('#ov').style.display='block';c.scrollTop=0;c.focus({preventScroll:true})},
+hide=()=>{$('#ov').style.display='none';if(LASTF&&LASTF.focus&&document.contains(LASTF))LASTF.focus();LASTF=null};
+addEventListener('keydown',ev=>{if($('#ov').style.display!='block')return;if(ev.key=='Escape'){ev.stopImmediatePropagation();hide();return}
+  if(ev.key=='Tab'){const f=[...$('#ovc').querySelectorAll('a[href],button:not([disabled]),input:not([disabled]),select,textarea')].filter(x=>x.offsetParent);if(!f.length)return;const a=f[0],z=f[f.length-1],cur=document.activeElement;
+    if(ev.shiftKey&&(cur==a||cur==$('#ovc'))){ev.preventDefault();z.focus()}else if(!ev.shiftKey&&cur==z){ev.preventDefault();a.focus()}}});
 const rz=f=>new Promise(r=>{const i=new Image();i.onload=()=>{const k=Math.min(1,1000/Math.max(i.width,i.height)),c=document.createElement('canvas');c.width=i.width*k;c.height=i.height*k;c.getContext('2d').drawImage(i,0,0,c.width,c.height);r(c.toDataURL('image/jpeg',.82).split(',')[1])};i.src=URL.createObjectURL(f)});
 const now=()=>new Date().toLocaleString('sv').slice(0,16);
 const tbl=(h,r)=>`<div class="tw"><table><tr>${h.map(x=>`<th>${x}`).join('')}${r.map(x=>`<tr>${x.map(c=>`<td>${c}`).join('')}`).join('')}</table></div>`;
@@ -160,7 +187,7 @@ function paint(){social();$('#ctt').textContent=S.cat=='Todas'?'Nuestros Product
   const cats=['Todas',...new Set(S.p.map(p=>p.categoria).filter(Boolean))];
   const ch=cats.map(c=>`<button class="${c==S.cat?'on':''}" onclick="pickCat('${e(c)}')">${e(c)}</button>`).join('');$('#chips').innerHTML=ch;$('#mnu').innerHTML=ch+'<button onclick="closeP();supportUI()">Soporte</button>';
   const q=S.q.trim().toLowerCase(),l=S.p.filter(p=>(S.cat=='Todas'||p.categoria==S.cat)&&(!q||[p.nombre,p.categoria,p.sku,p.descripcion].join(' ').toLowerCase().includes(q)));
-  $('#grid').innerHTML=l.map(p=>{const i=imgs(p)[0];return`<div class="card" onclick="prod('${e(p.sku)}')">${i?`<img src="${e(i)}" loading="lazy">`:'<div class="ph"></div>'}<div class="bd"><small>${e(p.categoria)}</small><br>${e(p.nombre)}<div class="pf"><span class="pr">${m(p.precio)}</span>${+p.stock<=0?'<small>Agotado</small>':`<button class="plus" aria-label="Agregar" onclick="event.stopPropagation();quick('${e(p.sku)}')">+</button>`}</div></div></div>`}).join('')||'<p>Sin productos disponibles.</p>';
+  $('#grid').innerHTML=l.map(p=>{const i=imgs(p)[0];return`<div class="card">${i?`<img src="${e(i)}" alt="${e(p.nombre)}" loading="lazy">`:'<div class="ph" aria-hidden="true"></div>'}<div class="bd"><small>${e(p.categoria)}</small><button class="nm" onclick="prod('${e(p.sku)}')">${e(p.nombre)}</button><div class="pf"><span class="pr">${m(p.precio)}</span>${+p.stock<=0?'<small>Agotado</small>':`<button class="plus" aria-label="Agregar ${e(p.nombre)} a la bolsa" onclick="quick('${e(p.sku)}')">+</button>`}</div></div></div>`}).join('')||'<p>Sin productos disponibles.</p>';
   const n=S.cart.reduce((a,x)=>a+x.qty,0);$('#cn').textContent=n;$('#cn').style.display=n?'block':'none';
 }
 const fmt=t=>e(t).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>');
@@ -168,14 +195,14 @@ const infoMap=c=>{try{const o=JSON.parse((c||{}).info_productos||'{}');return o&
 const infoOf=(sku,c=S.cfg)=>(infoMap(c)[sku]||[]).filter(x=>x&&(x.t||x.c));
 function prod(sku){
   const p=S.p.find(x=>x.sku==sku),im=imgs(p),co=cols(p),inf=infoOf(sku);CP=p;SEL=(co[0]||{}).n||'';
-  show(`<div class="pg"><div>${im[0]?`<img class="main-img" id="mi" src="${e(im[0])}">`:''}<div class="th">${im.map(u=>`<img src="${e(u)}" onclick="$('#mi').src=this.src">`).join('')}</div></div>
-  <div><small>${e(p.categoria)} · Código ${e(p.sku)}</small><h2>${e(p.nombre)}</h2><div class="pr">${m(p.precio)} USD <small style="font-weight:400;color:#777;font-size:13px">IVA incluido</small></div><div class="desc">${fmt(p.descripcion)}</div>
-  ${co.length?`<label>Color</label><div class="th" id="cs">${co.map((c,i)=>`<button class="sw ${i?'':'on'}" onclick="selCol(${i})"><i style="background:${e(c.h)}"></i>${e(c.n)}</button>`).join('')}</div>`:''}
-  <label>Cantidad</label><input type="number" id="q" value="1" min="1" max="${+p.stock}">
+  show(`<div class="pg"><div>${im[0]?`<img class="main-img" id="mi" src="${e(im[0])}" alt="${e(p.nombre)}">`:''}<div class="th">${im.map((u,i)=>`<button type="button" class="tbn" aria-label="Ver imagen ${i+1} de ${e(p.nombre)}" onclick="$('#mi').src=this.firstChild.src"><img src="${e(u)}" alt=""></button>`).join('')}</div></div>
+  <div><small>${e(p.categoria)} · Código ${e(p.sku)}</small><h2>${e(p.nombre)}</h2><div class="pr">${m(p.precio)} USD <small style="font-weight:400;color:#5f6368;font-size:13px">IVA incluido</small></div><div class="desc">${fmt(p.descripcion)}</div>
+  ${co.length?`<div class="lbl" id="lcol">Color</div><div class="th" id="cs" role="group" aria-labelledby="lcol">${co.map((c,i)=>`<button class="sw ${i?'':'on'}" aria-pressed="${i?'false':'true'}" onclick="selCol(${i})"><i style="background:${e(c.h)}"></i>${e(c.n)}</button>`).join('')}</div>`:''}
+  <label for="q">Cantidad</label><input type="number" id="q" value="1" min="1" max="${+p.stock}">
   <button class="b1" ${+p.stock<=0?'disabled':''} onclick="add('${e(p.sku)}')">${+p.stock<=0?'Agotado':'Agregar a la bolsa'}</button></div></div>
   ${inf.length?`<div class="pinf"><h3>Información del producto</h3>${inf.map(x=>`<div class="pit"><h4>${e(x.t)}</h4><div class="desc">${fmt(x.c)}</div></div>`).join('')}</div>`:''}`,1);
 }
-function selCol(i){SEL=cols(CP)[i].n;document.querySelectorAll('#cs .sw').forEach((b,j)=>b.classList.toggle('on',j==i))}
+function selCol(i){SEL=cols(CP)[i].n;document.querySelectorAll('#cs .sw').forEach((b,j)=>{b.classList.toggle('on',j==i);b.setAttribute('aria-pressed',j==i)})}
 function quick(sku){const p=S.p.find(x=>x.sku==sku);if(cols(p).length)return prod(sku);const c=S.cart.find(x=>x.sku==sku&&!x.color);if((c?c.qty:0)+1>+p.stock)return toast('Stock disponible: '+p.stock);c?c.qty++:S.cart.push({sku,qty:1});paint();toast('Agregado a la bolsa')}
 function add(sku){
   const p=S.p.find(x=>x.sku==sku),q=Math.max(1,+$('#q').value||1),color=SEL,c=S.cart.find(x=>x.sku==sku&&(x.color||'')==color),tq=S.cart.filter(x=>x.sku==sku).reduce((a,x)=>a+x.qty,0);
@@ -208,19 +235,27 @@ function supportUI(){
   const v=$('#sv');v.style.display='block';document.body.style.overflow='hidden';
   requestAnimationFrame(()=>{v.classList.add('on');$('#sxb').focus({preventScroll:true})});
 }
-function closeSupport(){const v=$('#sv');v.classList.remove('on');document.body.style.overflow='';setTimeout(()=>{if(!v.classList.contains('on'))v.style.display='none'},280)}
-addEventListener('keydown',ev=>{if(ev.key=='Escape'&&$('#sv').classList.contains('on'))closeSupport()});
+function closeSupport(){const v=$('#sv');['tk','tkc'].forEach(k=>$('#'+k).value='');$('#tkr').innerHTML='';v.classList.remove('on');document.body.style.overflow='';setTimeout(()=>{if(!v.classList.contains('on'))v.style.display='none'},280)}
+addEventListener('keydown',ev=>{if(ev.key=='Escape'&&$('#sv').classList.contains('on')&&$('#ov').style.display!='block')closeSupport()});
+const TK={n:0,t:0},nc=x=>String(x||'').replace(/[\s.\-]/g,'').toUpperCase().replace(/^0+/,'');
 async function trackOrder(){
-  let id=$('#tk').value.trim().toUpperCase().replace(/\s/g,'');const out=$('#tkr');
-  if(!id)return toast('Escribe el número de venta');
-  if(/^\d+$/.test(id))id='VTA-'+id.padStart(4,'0');
-  out.innerHTML='<p style="margin-top:12px">Buscando…</p>';
-  const r=await api({action:'track',id});
-  if(!r.ok){out.innerHTML=`<p class="tke" style="margin-top:12px">${e(r.error||'No se pudo consultar el pedido')}</p>`;return}
+  const out=$('#tkr'),ced=$('#tkc').value.trim();let id=$('#tk').value.trim().toUpperCase().replace(/\s/g,'');
+  if(!ced||!id)return toast('Ingresa tu cédula / RUC y el número de pedido');
+  if(!/^[0-9A-Za-z]{5,20}$/.test(ced.replace(/[\s.\-]/g,'')))return toast('Revisa tu cédula / RUC');
+  if(!/^[A-Z]+-\d+$/.test(id))return toast('Escribe el número de pedido completo, tal como aparece en tu comprobante (ej. VTA-0001)');
+  if(TK.n>=5&&Date.now()<TK.t){out.innerHTML='<p class="tke" style="margin-top:12px">Demasiados intentos. Espera un minuto e inténtalo de nuevo.</p>';return}
+  out.innerHTML='<p style="margin-top:12px">Validando…</p>';
+  const r=await api({action:'track',id,cedula:ced});
+  /* la respuesta debe corresponder al titular: si el servidor devuelve la cédula, se verifica también aquí */
+  const ok=r.ok&&(r.cedula==null||nc(r.cedula)==nc(ced));
+  if(!ok){TK.n++;if(TK.n>=5)TK.t=Date.now()+60000;
+    const net=!r.ok&&/conexi|URL|Apps Script|Falta pegar/i.test(String(r.error||''));
+    out.innerHTML=`<p class="tke" style="margin-top:12px">${net?e(r.error):'No encontramos un pedido con esos datos. Verifica tu cédula / RUC y el número de pedido.'}</p>`;return}
+  TK.n=0;$('#tkc').value='';
   const cur=Math.max(0,ESTS.indexOf(nEst(r.estado))),et=Array.isArray(r.etapas)?r.etapas:[];
   const st=ESTS.map((n,i)=>({n,i})).filter(x=>[0,1,4].includes(x.i)||et.includes(x.n)||x.i==cur);
   out.innerHTML=`<p style="margin:14px 0 0;color:#0f1c2e"><b>Pedido ${e(r.id)}</b>${r.fecha?' · '+e(r.fecha):''}</p><ul class="tl2">${st.map(x=>{const c=cur==4||x.i<cur?'done':x.i==cur?'cur':'todo';
-    return`<li class="${c}"><i>${c=='done'?'✓':''}</i>${e(x.n)}${x.i==2&&r.guia?`<small><span class="gz"># Guía: ${e(r.guia)}</span></small>`:''}</li>`}).join('')}</ul>`;
+    return`<li class="${c}"><i aria-hidden="true">${c=='done'?'✓':''}</i>${e(x.n)}${c=='cur'?'<span class="sr"> (estado actual)</span>':''}${x.i==2&&r.guia?`<small><span class="gz"># Guía: ${e(r.guia)}</span></small>`:''}</li>`}).join('')}</ul>`;
 }
 /* ===== ENVÍO ===== */
 const ZONES=[['Provincia de Pichincha','envio_pichincha',3.5],['Resto de Provincias','envio_resto',7],['Provincia de Galápagos','envio_galapagos',12]];
@@ -237,7 +272,7 @@ function fe(id,bad){const x=$('#'+id),g=$('#e_'+id);if(x)x.classList.toggle('bad
 function setShip(v){SHIP=v;cartRender()}
 function shipUI(){const p=isPick(),u=mapsUrl(S.cfg.retiro_maps);
   $('#sEnv').style.display=p?'none':'block';$('#sRet').style.display=p?'block':'none';
-  $('#sT1').classList.toggle('on',!p);$('#sT2').classList.toggle('on',p);
+  $('#sT1').classList.toggle('on',!p);$('#sT2').classList.toggle('on',p);$('#sT1').setAttribute('aria-pressed',!p);$('#sT2').setAttribute('aria-pressed',p);
   $('#sRet').innerHTML=`Retira tu pedido <b>sin costo</b> en:<br><b>${e(S.cfg.retiro_nombre||'Nuestro local')}</b>${u?`<br><a href="${e(u)}" target="_blank" rel="noopener">Ver ubicación en Google Maps</a>`:''}`}
 function cityUI(){const x=$('#sCity'),p=$('#sProv').value,cur=CITYO?CITYO.c:'',l=CITIES.filter(y=>y.p==p);
   x.innerHTML='<option value="">'+(p?'Selecciona tu cantón':'Primero elige la provincia')+'</option>'+l.map(y=>`<option value="${e(y.c)}">${e(y.c)}</option>`).join('');
@@ -258,25 +293,26 @@ function shipOK(){if(isPick())return true;
   const v={sProv:$('#sProv').value,sCity:CITYO?'1':'',sSec:$('#sSec').value,sCalle:$('#sCalle').value.trim(),sNum:$('#sNum').value.trim()};let first='';
   for(const k in v){if(fe(k,!v[k])&&!first)first=k}
   if(first)$('#'+first).scrollIntoView({block:'center',behavior:'smooth'});return !first}
-const OBL='<div class="er" id="e_ID">Este campo es obligatorio.</div>';
+const OBL='<div class="er" id="e_ID" role="alert">Este campo es obligatorio.</div>';
 const FORM=`<div id="fr"></div><div id="tt"></div>
-  <h3>Datos del cliente</h3><label>Cédula / RUC *</label><div style="display:flex;gap:6px"><input id="c1"><button class="b2" onclick="findC()">Buscar</button></div>
-  <div class="g2"><div><label>Teléfono / WhatsApp *</label><input id="c2"></div><div><label>Nombres / Razón social *</label><input id="c3"></div></div>
-  <label>Correo</label><input id="c4"><label>Método de pago *</label><select id="c5" onchange="payInfo()"></select><div id="pi"></div>
+  <h3>Datos del cliente</h3><p class="mn">Solo pedimos los datos necesarios para procesar y entregar tu pedido.</p><label for="c1">Cédula / RUC *</label><div style="display:flex;gap:6px"><input id="c1" inputmode="numeric" autocomplete="off" aria-required="true"></div>
+  <div class="g2"><div><label for="c2">Teléfono / WhatsApp *</label><input id="c2" type="tel" autocomplete="tel" aria-required="true"></div><div><label for="c3">Nombres / Razón social *</label><input id="c3" autocomplete="name" aria-required="true"></div></div>
+  <label for="c4">Correo (opcional)</label><input id="c4" type="email" autocomplete="email"><label for="c5">Método de pago *</label><select id="c5" onchange="payInfo()"></select><div id="pi"></div>
   <div class="shp"><h3>Envío</h3>
   <div class="sg"><button type="button" id="sT1" class="on" onclick="setShip('envio')">Enviar<small>a la dirección</small></button><button type="button" id="sT2" onclick="setShip('retiro')">Retiro en local</button></div>
   <div id="sRet" class="rt" style="display:none"></div>
   <div id="sEnv">
-  <label>Provincia</label><select id="sProv" onchange="provChg()"><option value="">Selecciona tu provincia</option>${Object.keys(PROV).map(p=>`<option>${e(p)}</option>`).join('')}</select>${OBL.replace('ID','sProv')}
-  <label>Cantón</label><select id="sCity" onchange="cityChg()"><option value="">Primero elige la provincia</option></select>${OBL.replace('ID','sCity')}
-  <label>Sector</label><select id="sSec" onchange="fe('sSec',0)"><option value="">Primero elige el cantón</option></select>${OBL.replace('ID','sSec')}
+  <label for="sProv">Provincia</label><select id="sProv" aria-required="true" onchange="provChg()"><option value="">Selecciona tu provincia</option>${Object.keys(PROV).map(p=>`<option>${e(p)}</option>`).join('')}</select>${OBL.replace('ID','sProv')}
+  <label for="sCity">Cantón</label><select id="sCity" aria-required="true" onchange="cityChg()"><option value="">Primero elige la provincia</option></select>${OBL.replace('ID','sCity')}
+  <label for="sSec">Sector</label><select id="sSec" aria-required="true" onchange="fe('sSec',0)"><option value="">Primero elige el cantón</option></select>${OBL.replace('ID','sSec')}
   <p class="hnt">Complete su dirección de entrega</p>
-  <label>Calle principal</label><input id="sCalle" placeholder="Calle principal" oninput="fe('sCalle',0)">${OBL.replace('ID','sCalle')}
-  <label>Calle secundaria</label><input id="sNum" placeholder="Calle secundaria" oninput="fe('sNum',0)">${OBL.replace('ID','sNum')}
-  <label>Información adicional (ej.: Apto. 201)</label><input id="sInfo" placeholder="Dirección complementaria">
-  <label>Destinatario</label><input id="sDest" placeholder="Nombre de quien recibe (si es otra persona)">
+  <label for="sCalle">Calle principal</label><input id="sCalle" autocomplete="address-line1" aria-required="true" placeholder="Calle principal" oninput="fe('sCalle',0)">${OBL.replace('ID','sCalle')}
+  <label for="sNum">Calle secundaria</label><input id="sNum" autocomplete="address-line2" aria-required="true" placeholder="Calle secundaria" oninput="fe('sNum',0)">${OBL.replace('ID','sNum')}
+  <label for="sInfo">Información adicional (ej.: Apto. 201)</label><input id="sInfo" placeholder="Dirección complementaria">
+  <label for="sDest">Destinatario</label><input id="sDest" placeholder="Nombre de quien recibe (si es otra persona)">
   </div></div>
-  <label>Observación</label><input id="c7">
+  <label for="c7">Observación (opcional)</label><input id="c7">
+  <div class="cons"><input type="checkbox" id="c8" aria-required="true" onchange="fe('c8',0)"><label for="c8">He leído y acepto la <button type="button" class="lk" onclick="legal('priv')">Política de privacidad</button> y los <button type="button" class="lk" onclick="legal('terms')">Términos y condiciones</button>, y autorizo el uso de mis datos para procesar y entregar mi pedido. *</label></div><div class="er" id="e_c8" role="alert">Debes aceptar para continuar.</div>
   <button class="b1" id="ok" onclick="order()">Confirmar pedido</button>`;
 function cartUI(){
   const v=$('#cv');v.style.display='block';document.body.style.overflow='hidden';
@@ -285,7 +321,7 @@ function cartUI(){
   requestAnimationFrame(()=>{v.classList.add('on');$('#cxb').focus({preventScroll:true})});
 }
 function closeCart(){const v=$('#cv');v.classList.remove('on');document.body.style.overflow='';setTimeout(()=>{if(!v.classList.contains('on'))v.style.display='none'},280)}
-addEventListener('keydown',ev=>{if(ev.key=='Escape'&&$('#cv').classList.contains('on'))closeCart()});
+addEventListener('keydown',ev=>{if(ev.key=='Escape'&&$('#cv').classList.contains('on')&&$('#ov').style.display!='block')closeCart()});
 const TR='<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12M10 11v6M14 11v6"/></svg>';
 function cartRender(){
   S.cart=S.cart.filter(x=>S.p.some(p=>p.sku==x.sku));
@@ -305,10 +341,10 @@ function qty(i,d){
   if(x.qty<=0)S.cart.splice(i,1);paint();cartRender();
 }
 function rmv(i){S.cart.splice(i,1);paint();cartRender()}
-async function findC(){const r=await api({action:'client',cedula:$('#c1').value.trim()});if(r.cliente){$('#c2').value=r.cliente.telefono;$('#c3').value=r.cliente.nombre;$('#c4').value=r.cliente.correo;{const d=String(r.cliente.direccion||'');if(!d.startsWith('Retiro')){if(parseDir(d))fillAddr(d);else if(!$('#sCalle').value)$('#sCalle').value=d}if(!$('#sDest').value)$('#sDest').value=r.cliente.nombre;cartRender()}}else toast('Cliente nuevo')}
 async function order(){
   const c={cedula:$('#c1').value.trim(),telefono:$('#c2').value.trim(),nombre:$('#c3').value.trim(),correo:$('#c4').value.trim(),direccion:''};
   if(!c.cedula||!c.telefono||!c.nombre)return toast('Completa los campos obligatorios (*)');
+  if(!$('#c8').checked){fe('c8',1);$('#c8').scrollIntoView({block:'center',behavior:'smooth'});$('#c8').focus({preventScroll:true});return toast('Debes aceptar la política de privacidad y los términos')}
   if(!shipOK())return toast('Completa los datos de envío');
   const P=isPick(),prov=$('#sProv').value,cl=t=>String(t||'').replace(/\s*\|\s*/g,' / ').trim(),dest=cl($('#sDest').value),inf=cl($('#sInfo').value);
   c.direccion=P?'Retiro en local: '+cl(S.cfg.retiro_nombre||'Local')+(S.cfg.retiro_maps?' | Ubicación: '+mapsUrl(S.cfg.retiro_maps):''):['Provincia: '+prov,'Cantón: '+CITYO.c,'Sector: '+$('#sSec').value,'Calle principal: '+cl($('#sCalle').value),'Calle secundaria: '+cl($('#sNum').value)].concat(inf?['Información adicional: '+inf]:[],['Destinatario: '+(dest||c.nombre)]).join(' | ');
@@ -322,7 +358,7 @@ async function order(){
   if(Math.abs(GT-(+r.total))>.01)console.warn('El total que guardó la hoja ('+r.total+') difiere del total del comprobante ('+GT+'). Actualiza el Apps Script.');
   const txt=`Hola ROUMANS, pedido ${r.id}\nCliente: ${c.nombre} (${c.cedula})\n`+r.items.map(i=>`- ${i.qty} x ${i.nombre}${i.color?' ('+i.color+')':''}`).join('\n')+`\nEnvío (${zona}): ${E?m(E):'GRATIS'}\nTotal (IVA incluido): ${m(GT)} USD\nPago: ${pg}\nEntrega:\n${c.direccion.split(' | ').join('\n')}`;
   LAST={id:r.id,fecha:now(),cli:c,items:r.items,pago:pg,obs:ob,sub:T.s,iva:T.i,total:GT,inc:1,envio:E,zona:zona};
-  S.cart=[];['c1','c2','c3','c4','c7','sProv','sCity','sCalle','sNum','sInfo','sDest'].forEach(k=>$('#'+k).value='');CITYO=null;cityUI();
+  S.cart=[];['c1','c2','c3','c4','c7','sProv','sCity','sCalle','sNum','sInfo','sDest'].forEach(k=>$('#'+k).value='');CITYO=null;cityUI();$('#c8').checked=false;
   $('#ok').disabled=false;$('#ok').textContent='Confirmar pedido';
   load();closeCart();
   show(`<h2>¡Pedido registrado!</h2><p>N° ${e(r.id)} · Total ${m(GT)} USD (IVA incluido y envío)</p>${S.cfg.whatsapp?`<a class="b1" style="display:inline-block;text-decoration:none" target="_blank" href="https://wa.me/${e(S.cfg.whatsapp)}?text=${encodeURIComponent(txt)}">Enviar comprobante por WhatsApp</a>`:''} <button class="b1" onclick="pdf(LAST)">Descargar comprobante PDF</button> <button class="b2" onclick="hide()">Seguir comprando</button>`);
@@ -457,6 +493,78 @@ async function saveCfg(){
   if(await saveTable('CONFIGURACION',Object.keys(c).map(k=>({clave:k,valor:c[k]})))){
     S.A.config=c;PM=null;CD=null;const nk=$('#f6').value;if(nk){const r=await api({action:'setKey',key:S.key,newKey:nk});if(r.ok)S.key=nk}load();admin()}
 }
+
+/* ===== CUMPLIMIENTO LEGAL (Ecuador), PRIVACIDAD Y COOKIES ===== */
+/* Completa estos datos del negocio: solo se muestran los que tengan valor. */
+const BIZ={nombre:'ROUMANS',razon:'',ruc:'',dir:'',correo:'info.roumans@gmail.com',telefono:'',horario:'',
+  devolDias:15,      /* días para pedir devolución desde que recibes el producto */
+  reembolsoDias:10,  /* días hábiles para devolver el dinero una vez aprobada la devolución */
+  analyticsId:''};   /* ID de Google Analytics (G-XXXXXXX). Vacío = no se carga ninguna analítica */
+const FECHA_LEGAL='20 de noviembre de 2026';
+const wapp=()=>String(S.cfg.whatsapp||'').replace(/\D/g,'');
+const contacto=()=>[BIZ.correo&&`correo <a href="mailto:${e(BIZ.correo)}">${e(BIZ.correo)}</a>`,wapp()&&`WhatsApp <a href="https://wa.me/${wapp()}" target="_blank" rel="noopener">+${wapp()}</a>`].filter(Boolean).join(' o ')||'el botón «Soporte» de este sitio o nuestras redes sociales';
+const titular=()=>e(BIZ.razon||BIZ.nombre)+(BIZ.ruc?' (RUC '+e(BIZ.ruc)+')':'');
+const LG={
+priv:()=>`<h2>Política de privacidad</h2><small>Última actualización: ${FECHA_LEGAL}</small>
+<h3>1. Responsable del tratamiento</h3><p>${titular()} es responsable del tratamiento de tus datos personales, conforme a la Ley Orgánica de Protección de Datos Personales (LOPDP) y su Reglamento. Contacto para temas de privacidad: ${contacto()}.</p>
+<h3>2. Datos que recogemos (solo los necesarios)</h3><ul><li><b>Identificación:</b> cédula / RUC y nombres o razón social, para emitir el comprobante y validar tus pedidos.</li><li><b>Contacto:</b> teléfono / WhatsApp para coordinar la entrega; correo electrónico, que es opcional.</li><li><b>Entrega:</b> provincia, cantón, sector, calles, referencia y destinatario; o la elección de retiro en local.</li><li><b>Pedido:</b> productos, valores, método de pago elegido y observaciones (opcional).</li></ul><p>Este sitio <b>no solicita ni almacena números de tarjeta</b>. No recogemos datos sensibles ni de menores de edad: la tienda no está dirigida a menores de 18 años.</p>
+<h3>3. Para qué usamos tus datos y base legal</h3><ul><li>Procesar, cobrar, entregar y dar seguimiento a tu pedido (ejecución del contrato).</li><li>Emitir comprobantes y cumplir obligaciones tributarias y contables (obligación legal).</li><li>Atender tus consultas y soporte.</li><li>Medir visitas con analíticas, solo si lo aceptas en el aviso de cookies (consentimiento).</li></ul><p>No vendemos tus datos ni los usamos para decisiones automatizadas.</p>
+<h3>4. Con quién los compartimos</h3><ul><li><b>Google (Google Apps Script / Hojas de cálculo):</b> donde se registran los pedidos y el catálogo de la tienda.</li><li><b>Empresas de transporte o courier:</b> nombre, teléfono y dirección, únicamente para entregar tu pedido.</li><li><b>WhatsApp (Meta):</b> si decides enviarnos tu comprobante por ese medio.</li><li><b>Autoridades</b>, cuando la ley lo exija.</li></ul><p>Algunos de estos proveedores pueden procesar datos fuera del Ecuador. Más detalle en la <button class="lk" onclick="legal('cook')">Política de cookies</button>.</p>
+<h3>5. Consulta de pedidos protegida</h3><p>Para dar seguimiento a un pedido pedimos tu cédula / RUC y el número de pedido, de modo que solo quien hizo la compra pueda ver su información.</p>
+<h3>6. Conservación</h3><p>Guardamos tus datos mientras sean necesarios para atender tu pedido y por los plazos que exigen las normas tributarias y contables. Luego se eliminan o anonimizan.</p>
+<h3>7. Tus derechos</h3><p>Puedes solicitar acceso, rectificación y actualización, eliminación, oposición, limitación del tratamiento y portabilidad de tus datos, y retirar tu consentimiento cuando quieras. Escríbenos por ${contacto()} indicando tu nombre y cédula; responderemos dentro de los plazos de la LOPDP. Si consideras que tus derechos no fueron atendidos, puedes presentar un reclamo ante la Superintendencia de Protección de Datos Personales (SPDP).</p>
+<h3>8. Seguridad</h3><p>Usamos conexiones cifradas (HTTPS) y limitamos el acceso a la información al personal que la necesita para operar la tienda.</p>
+<h3>9. Cambios</h3><p>Si cambiamos esta política, publicaremos la nueva versión aquí con su fecha.</p>`,
+
+terms:()=>`<h2>Términos y condiciones</h2><small>Última actualización: ${FECHA_LEGAL}</small>
+<h3>1. Quiénes somos</h3><p>Este sitio es operado por ${titular()}. Al comprar aceptas estos términos, la <button class="lk" onclick="legal('priv')">Política de privacidad</button> y la <button class="lk" onclick="legal('refund')">política de devoluciones</button>.</p>
+<h3>2. Precios y disponibilidad</h3><p>Los precios están en dólares de los Estados Unidos (USD) e incluyen IVA (${ivaR()}%). El envío se calcula al finalizar la compra. La disponibilidad depende del stock mostrado; si un producto se agota antes de confirmar tu pedido, te lo informaremos.</p>
+<h3>3. Cómo se realiza un pedido</h3><p>Al confirmar el pedido se registra con un número de venta. El pedido queda sujeto a la verificación del pago y del stock. Recibirás el estado en la sección «Seguimiento de pedido» de Soporte, usando tu cédula / RUC y el número de pedido.</p>
+<h3>4. Métodos de pago</h3><p>Se muestran en el carrito los métodos habilitados en cada momento (por ejemplo, transferencia bancaria, efectivo o contra entrega y tarjeta). Las instrucciones de cada método aparecen al seleccionarlo.</p>
+<h3>5. Envíos y retiro en local</h3><ul>${ZONES.map((z,i)=>`<li>${e(z[0])}: ${m(zc(i))}</li>`).join('')}<li>Envío gratis en compras desde ${m(gmin())}.</li><li>Retiro en local sin costo${S.cfg.retiro_nombre?': '+e(S.cfg.retiro_nombre):''}.</li></ul><p>Los tiempos de entrega dependen de la empresa transportista y de la zona; son estimados y no una garantía.</p>
+<h3>6. Devoluciones</h3><p>Aplican las condiciones de la <button class="lk" onclick="legal('refund')">política de devoluciones y reembolsos</button>.</p>
+<h3>7. Información de productos</h3><p>Describimos los productos con la información disponible y fotografías referenciales; el color real puede variar levemente según tu pantalla. No hacemos promesas de resultados que no podamos respaldar. Si ves un error en una descripción o precio, escríbenos para corregirlo.</p>
+<h3>8. Reseñas y opiniones</h3><p>Este sitio no publica reseñas ni calificaciones. Si se incorporan en el futuro, serán de compradores reales y no se pagarán, inventarán ni editarán para mejorar la imagen de un producto.</p>
+<h3>9. Propiedad intelectual</h3><p>El nombre ROUMANS, el logotipo, las imágenes y los textos de este sitio están protegidos por derechos de autor y de propiedad intelectual. No se pueden copiar, modificar ni usar con fines comerciales sin autorización escrita. Si crees que alguna imagen infringe tus derechos, escríbenos por ${contacto()} y la revisaremos de inmediato.</p>
+<h3>10. Uso del sitio</h3><p>Te comprometes a dar datos verdaderos y a no intentar acceder a información de otras personas ni a áreas restringidas del sitio.</p>
+<h3>11. Ley aplicable</h3><p>Estos términos se rigen por las leyes de la República del Ecuador, en particular la Ley Orgánica de Defensa del Consumidor, la Ley de Comercio Electrónico, Firmas Electrónicas y Mensajes de Datos y la Ley Orgánica de Protección de Datos Personales. Como consumidor puedes acudir a la Defensoría del Pueblo o a las autoridades competentes.</p>
+<h3>12. Contacto</h3><p>${e(BIZ.nombre)} - <a href="mailto:info.roumans@gmail.com">info.roumans@gmail.com</a>${wapp()?' - +'+wapp():''}</p>`,
+
+refund:()=>`<h2>Devoluciones y reembolsos</h2><small>Última actualización: ${FECHA_LEGAL}</small>
+<h3>Tu derecho</h3><p>Como consumidor tienes los derechos que reconoce la Ley Orgánica de Defensa del Consumidor del Ecuador, incluido el derecho a la reposición, reparación o devolución del dinero si el producto es defectuoso o no corresponde a lo ofrecido, y el derecho de devolución en compras realizadas por internet.</p>
+<h3>Plazo</h3><p>Puedes solicitar la devolución o el cambio dentro de <b>${+BIZ.devolDias||15} días</b> contados desde que recibes el producto.</p>
+<h3>Condiciones</h3><ul><li>El producto debe estar en el mismo estado en que lo recibiste, sin uso, con su empaque, etiquetas y accesorios.</li><li>Ten a mano tu número de pedido y tu cédula / RUC.</li><li>Si el producto llegó dañado, incompleto o no es el que pediste, escríbenos con fotos lo antes posible.</li></ul>
+<h3>Cómo solicitarla</h3><p>Escríbenos por ${contacto()} con tu número de pedido. Te indicaremos cómo enviarnos el producto o coordinar su retiro.</p>
+<h3>Reembolso</h3><p>Una vez recibido y revisado el producto, devolvemos el dinero por el mismo medio de pago en un máximo de <b>${+BIZ.reembolsoDias||10} días hábiles</b>. No se obliga a aceptar notas de crédito en lugar del reembolso.</p>
+<h3>Costo del envío de la devolución</h3><p>Si el producto es defectuoso o hubo un error nuestro, ROUMANS asume el costo. En los demás casos, el costo del envío de regreso corre por cuenta del cliente.</p>`,
+
+cook:()=>{const c=ckGet();return`<h2>Política de cookies</h2><small>Última actualización: ${FECHA_LEGAL}</small>
+<p>Las cookies y el almacenamiento local son pequeños archivos o datos que tu navegador guarda para que un sitio funcione o recuerde preferencias.</p>
+<h3>Lo que usa este sitio</h3><div class="tw"><table><tr><th>Tipo<th>Para qué<th>¿Necesita tu permiso?</tr>
+<tr><td>Necesarias (almacenamiento local)<td>Recordar tu elección sobre cookies.<td>No</tr>
+<tr><td>Analíticas<td>${BIZ.analyticsId?'Medir visitas y uso del sitio para mejorarlo (Google Analytics).':'Actualmente el sitio no usa analíticas. Si se activan, solo se cargarán si las aceptas.'}<td>Sí</tr></table></div>
+<h3>Servicios de terceros</h3><ul><li><b>Google Apps Script:</b> carga el catálogo y registra pedidos; Google puede registrar tu dirección IP.</li><li><b>cdnjs (Cloudflare):</b> se carga la librería que genera el comprobante en PDF, solo cuando la descargas.</li><li><b>Redes sociales y WhatsApp:</b> los íconos son enlaces; solo se comparte información si entras a esos sitios.</li></ul>
+<h3>Tu elección</h3><p>Estado actual: <b>${c?(c.a?'analíticas aceptadas':'solo necesarias'):'aún sin elegir'}</b>. Puedes cambiarla cuando quieras en <button class="lk" onclick="ckCfg()">Configurar cookies</button>. También puedes borrar los datos del sitio desde tu navegador.</p>`}
+};
+function legal(k){show('<div class="lgl">'+LG[k]()+'</div>')}
+
+/* Consentimiento de cookies y analíticas (solo se cargan con permiso) */
+const CKEY='rm_consent';
+const ckGet=()=>{try{return JSON.parse(localStorage.getItem(CKEY)||'null')}catch{return null}};
+let GA=0;
+function ckApply(){const c=ckGet(),id=BIZ.analyticsId;if(!id)return;
+  if(c&&c.a){window['ga-disable-'+id]=false;if(!GA){GA=1;window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config',id,{anonymize_ip:true});
+    const sc=document.createElement('script');sc.async=1;sc.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(id);document.head.appendChild(sc)}}
+  else window['ga-disable-'+id]=true}
+function ckSet(a){try{localStorage.setItem(CKEY,JSON.stringify({a:a?1:0,t:new Date().toISOString()}))}catch{}ckApply();const b=$('#ckb');if(b)b.style.display='none'}
+function ckBanner(){let b=$('#ckb');if(!b){b=document.createElement('div');b.id='ckb';b.setAttribute('role','region');b.setAttribute('aria-label','Consentimiento de cookies');document.body.appendChild(b)}
+  b.innerHTML=`<p>Usamos almacenamiento técnico necesario para que la tienda funcione.${BIZ.analyticsId?' Con tu permiso, también medimos las visitas para mejorar el sitio.':''} Puedes cambiar tu elección cuando quieras. <button class="lk" onclick="legal('cook')">Política de cookies</button></p><div><button class="b1" onclick="ckSet(1)">Aceptar todas</button><button class="b1" onclick="ckSet(0)">Solo necesarias</button><button class="b2" onclick="ckCfg()">Personalizar</button></div>`;b.style.display='flex'}
+function ckCfg(){const c=ckGet();show(`<div class="lgl"><h2>Configurar cookies</h2><p>Elige qué almacenamiento permites. Las necesarias no se pueden desactivar porque guardan esta misma elección.</p>
+  <div class="row"><label for="ck0">Necesarias</label><input type="checkbox" id="ck0" checked disabled></div>
+  <div class="row"><label for="ck1">Analíticas (medición de visitas)</label><input type="checkbox" id="ck1" ${c&&c.a?'checked':''}></div>
+  <button class="b1" onclick="ckSet($('#ck1').checked);hide();toast('Preferencias guardadas')">Guardar preferencias</button></div>`)}
+ckApply();if(!ckGet())ckBanner();
+
 addEventListener('hashchange',()=>{if(location.hash=='#admin')loginUI()});
 load();if(location.hash=='#admin')loginUI();
 </script></body></html>
